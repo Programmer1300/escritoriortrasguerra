@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package escritorioguerra;
 
-/**
- *
- * @author medev
- */
 public class Escritorioguerra {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+      frmExtraguerra nun = new frmExtraguerra();
+      nun.setTitle("Extracción de basura    Trasportes Guerra");
+      //nun.setExtendedState(6);
+      //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+      nun.setVisible(true);
+      
     }
     
 }

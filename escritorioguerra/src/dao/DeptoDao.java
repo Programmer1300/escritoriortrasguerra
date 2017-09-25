@@ -1,9 +1,6 @@
 package dao;
 
 import classes.Department;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
