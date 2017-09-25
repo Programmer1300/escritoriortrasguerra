@@ -49,9 +49,16 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Sistema");
+        fileMenu.setToolTipText("control del sistema");
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Usuarios");
+        openMenuItem.setToolTipText("administracion de los usuarios y permisos");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
@@ -132,6 +139,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        frmControluser u = new frmControluser();
+        u.setVisible(true);
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
