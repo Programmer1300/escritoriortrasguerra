@@ -17,12 +17,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -34,8 +34,9 @@ public class frmExtraguerra extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Sistema");
         fileMenu.setToolTipText("control del sistema");
+        fileMenu.setIconTextGap(5);
 
-        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/usuario comf.png"))); // NOI18N
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Usuarios");
         openMenuItem.setToolTipText("administracion de los usuarios y permisos");
@@ -51,12 +52,16 @@ public class frmExtraguerra extends javax.swing.JFrame {
         saveMenuItem.setText("Colonias");
         fileMenu.add(saveMenuItem);
 
-        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book.png"))); // NOI18N
+        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/report-user-icon.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Registro de Sesiones");
         fileMenu.add(saveAsMenuItem);
 
-        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/door_in.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
+        jMenuItem1.setText("Cerrar sesion");
+        fileMenu.add(jMenuItem1);
+
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Salir");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -83,10 +88,6 @@ public class frmExtraguerra extends javax.swing.JFrame {
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Listados");
         editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
@@ -176,12 +177,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
