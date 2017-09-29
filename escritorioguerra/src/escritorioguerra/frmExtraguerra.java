@@ -59,6 +59,11 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
         jMenuItem1.setText("Cerrar sesion");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem1);
 
         exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
@@ -135,6 +140,11 @@ public class frmExtraguerra extends javax.swing.JFrame {
         this.desktopPane.add(u);
         u.setVisible(true);
     }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
