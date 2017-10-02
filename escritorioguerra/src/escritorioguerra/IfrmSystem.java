@@ -233,11 +233,14 @@ public class IfrmSystem extends javax.swing.JInternalFrame {
 
     private void btnDesbloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearActionPerformed
         String pass = "Leo";
-        int blo;
+        int blo=0;
         JFrame frame = new JFrame("InputDialog Example");
         String code = JOptionPane.showInputDialog(frame, " Ingrese el codigo para la confirmaion de desbloqueo",
                 "confirmacion", JOptionPane.WARNING_MESSAGE);
         System.out.println(code);
+        if (blo==0){
+            
+        
         if (code == null) {
             JOptionPane.showMessageDialog(null, "Has canselado.");
         } else if (code.equals(pass)) {
@@ -262,7 +265,9 @@ public class IfrmSystem extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Has seleccionado NO.");
             }
         }
+        }else if (blo == 1){
             
+        }    
     }//GEN-LAST:event_btnDesbloquearActionPerformed
 
     private void btnCanselarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanselarActionPerformed
