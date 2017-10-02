@@ -62,9 +62,9 @@ public class frmLogin extends javax.swing.JFrame {
         lbPass.setText("Contraseña");
         lbPass.setName(""); // NOI18N
 
-        txtPass.setText("jPasswordField1");
+        txtPass.setToolTipText("Ingrese la Contraseña");
 
-        txtUsers.setText("jTextField1");
+        txtUsers.setToolTipText("Ingrese el usuario");
 
         jPanel1.setBackground(new java.awt.Color(16, 93, 13));
 
@@ -98,9 +98,9 @@ public class frmLogin extends javax.swing.JFrame {
                     .addComponent(lbUser)
                     .addComponent(lbPass))
                 .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(txtPass))
                 .addGap(46, 46, 46)
                 .addComponent(btnExit)
                 .addGap(37, 37, 37)

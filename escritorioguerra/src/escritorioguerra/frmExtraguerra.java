@@ -14,10 +14,10 @@ public class frmExtraguerra extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        opUser = new javax.swing.JMenuItem();
+        opColonias = new javax.swing.JMenuItem();
+        opRegistro = new javax.swing.JMenuItem();
+        opLogout = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
@@ -36,35 +36,35 @@ public class frmExtraguerra extends javax.swing.JFrame {
         fileMenu.setToolTipText("control del sistema");
         fileMenu.setIconTextGap(5);
 
-        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Usuarios");
-        openMenuItem.setToolTipText("administracion de los usuarios y permisos");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
+        opUser.setMnemonic('o');
+        opUser.setText("Usuarios");
+        opUser.setToolTipText("administracion de los usuarios y permisos");
+        opUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
+                opUserActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        fileMenu.add(opUser);
 
-        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/building.png"))); // NOI18N
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Colonias");
-        fileMenu.add(saveMenuItem);
+        opColonias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/building.png"))); // NOI18N
+        opColonias.setMnemonic('s');
+        opColonias.setText("Colonias");
+        fileMenu.add(opColonias);
 
-        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/report-user-icon.png"))); // NOI18N
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Registro de Sesiones");
-        fileMenu.add(saveAsMenuItem);
+        opRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/report-user-icon.png"))); // NOI18N
+        opRegistro.setMnemonic('a');
+        opRegistro.setText("Registro de Sesiones");
+        fileMenu.add(opRegistro);
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
-        jMenuItem1.setText("Cerrar sesion");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        opLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
+        opLogout.setText("Cerrar sesion");
+        opLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                opLogoutActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem1);
+        fileMenu.add(opLogout);
 
         exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
         exitMenuItem.setMnemonic('x');
@@ -134,17 +134,18 @@ public class frmExtraguerra extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+    private void opUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opUserActionPerformed
         // TODO add your handling code here:
         frmUser u = new frmUser();
         this.desktopPane.add(u);
         u.setVisible(true);
-    }//GEN-LAST:event_openMenuItemActionPerformed
+    }//GEN-LAST:event_opUserActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void opLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLogoutActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+      Escritorioguerra.ini.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_opLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,12 +193,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem opColonias;
+    private javax.swing.JMenuItem opLogout;
+    private javax.swing.JMenuItem opRegistro;
+    private javax.swing.JMenuItem opUser;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
