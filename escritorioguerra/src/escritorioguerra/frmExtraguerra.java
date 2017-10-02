@@ -13,12 +13,6 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        opUser = new javax.swing.JMenuItem();
-        opColonias = new javax.swing.JMenuItem();
-        opRegistro = new javax.swing.JMenuItem();
-        opLogout = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
@@ -26,57 +20,14 @@ public class frmExtraguerra extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        fileMenu = new javax.swing.JMenu();
+        opUser = new javax.swing.JMenuItem();
+        opLogout = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Sistema");
-        fileMenu.setToolTipText("control del sistema");
-        fileMenu.setIconTextGap(5);
-
-        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
-        opUser.setMnemonic('o');
-        opUser.setText("Usuarios");
-        opUser.setToolTipText("administracion de los usuarios y permisos");
-        opUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opUserActionPerformed(evt);
-            }
-        });
-        fileMenu.add(opUser);
-
-        opColonias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/building.png"))); // NOI18N
-        opColonias.setMnemonic('s');
-        opColonias.setText("Colonias");
-        fileMenu.add(opColonias);
-
-        opRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/report-user-icon.png"))); // NOI18N
-        opRegistro.setMnemonic('a');
-        opRegistro.setText("Registro de Sesiones");
-        fileMenu.add(opRegistro);
-
-        opLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
-        opLogout.setText("Cerrar sesion");
-        opLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLogoutActionPerformed(evt);
-            }
-        });
-        fileMenu.add(opLogout);
-
-        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Salir");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
 
         editMenu.setMnemonic('e');
         editMenu.setText("Clientes");
@@ -110,6 +61,43 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        fileMenu.setMnemonic('f');
+        fileMenu.setText("Sistema");
+        fileMenu.setToolTipText("control del sistema");
+        fileMenu.setIconTextGap(5);
+
+        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajustes (2).png"))); // NOI18N
+        opUser.setMnemonic('o');
+        opUser.setText("Usuarios");
+        opUser.setToolTipText("administracion de los usuarios y permisos");
+        opUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opUserActionPerformed(evt);
+            }
+        });
+        fileMenu.add(opUser);
+
+        opLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
+        opLogout.setText("Cerrar sesion");
+        opLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLogoutActionPerformed(evt);
+            }
+        });
+        fileMenu.add(opLogout);
+
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
+        exitMenuItem.setMnemonic('x');
+        exitMenuItem.setText("Salir");
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,7 +124,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
     private void opUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opUserActionPerformed
         // TODO add your handling code here:
-        frmUser u = new frmUser();
+        IfrmSystem u = new IfrmSystem();
         this.desktopPane.add(u);
         u.setVisible(true);
     }//GEN-LAST:event_opUserActionPerformed
@@ -194,9 +182,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem opColonias;
     private javax.swing.JMenuItem opLogout;
-    private javax.swing.JMenuItem opRegistro;
     private javax.swing.JMenuItem opUser;
     private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
