@@ -1,5 +1,5 @@
 
-package escritorioguerra;
+package vistas;
 
 public class frmExtraguerra extends javax.swing.JFrame {
 

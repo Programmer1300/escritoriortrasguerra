@@ -1,5 +1,5 @@
 
-package escritorioguerra;
+package vistas;
 
 public class Escritorioguerra {
     public static frmLogin ini; 

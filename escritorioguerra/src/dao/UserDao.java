@@ -92,6 +92,10 @@ public class UserDao extends Conexion {
             System.err.println(ex);
         } finally { super.cerrar(); }
 
+    }public void displayUser(){
+        super.conectar();
+        String = "call displayUser()";
+        PreparedStatement dplUser = 
     }
     
 }
