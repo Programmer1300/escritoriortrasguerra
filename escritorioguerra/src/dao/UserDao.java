@@ -94,8 +94,7 @@ public class UserDao extends Conexion {
 
     }public void displayUser(){
         super.conectar();
-        String = "call displayUser()";
-        PreparedStatement dplUser = 
+       
     }
     
 }

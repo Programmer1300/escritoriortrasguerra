@@ -39,6 +39,11 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Busqueda por colonia");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
@@ -134,6 +139,13 @@ public class frmExtraguerra extends javax.swing.JFrame {
       Escritorioguerra.ini.setVisible(true);
      this.setVisible(false);
     }//GEN-LAST:event_opLogoutActionPerformed
+
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        // TODO add your handling code here:
+        Ifrmsearchtown t = new Ifrmsearchtown();
+        this.desktopPane.add(t);
+        t.setVisible(true);
+    }//GEN-LAST:event_copyMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
