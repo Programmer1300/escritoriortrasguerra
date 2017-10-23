@@ -5,6 +5,8 @@ import conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDao extends Conexion {
     
@@ -93,8 +95,14 @@ public class UserDao extends Conexion {
         } finally { super.cerrar(); }
 
     }public void displayUser(){
+        try {
         super.conectar();
-       
+        String displayUS = "CALL displayUser";
+            PreparedStatement dplUs = super.getConexion().prepareCall(displayUS);
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        } finally { super.cerrar();}
+        
     }
     
 }

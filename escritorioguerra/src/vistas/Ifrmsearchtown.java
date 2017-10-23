@@ -45,6 +45,11 @@ public class Ifrmsearchtown extends javax.swing.JInternalFrame {
         setIconifiable(true);
 
         cmbDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartmentActionPerformed(evt);
+            }
+        });
 
         lbldepartment.setText("Departamento");
 
@@ -155,6 +160,10 @@ public class Ifrmsearchtown extends javax.swing.JInternalFrame {
             Logger.getLogger(IfrmSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCanselarActionPerformed
+
+    private void cmbDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartmentActionPerformed
+        
+    }//GEN-LAST:event_cmbDepartmentActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
