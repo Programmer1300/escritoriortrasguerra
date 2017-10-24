@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Controloador.ControlUser;
 
 
 /*
@@ -43,6 +44,7 @@ int blo=0;
         this.tblHistory.setEnabled(false);
         
         
+        
 
     }
 
@@ -58,7 +60,6 @@ int blo=0;
         btnDesbloquear = new javax.swing.JButton();
         tpnControl = new javax.swing.JTabbedPane();
         panUser = new javax.swing.JPanel();
-        btnSaveUser = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -84,7 +85,6 @@ int blo=0;
         panRegistro = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblHistory = new javax.swing.JTable();
-        btnCanselar = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setIconifiable(true);
@@ -128,20 +128,22 @@ int blo=0;
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panUserLayout.createSequentialGroup()
                         .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUser)
                             .addComponent(lblPass))
                         .addGap(18, 18, 18)
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pwdPass, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(158, Short.MAX_VALUE))
+                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pwdPass)
+                            .addComponent(txtUser)))
+                    .addGroup(panUserLayout.createSequentialGroup()
+                        .addComponent(lblTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(485, Short.MAX_VALUE)
                 .addComponent(btnSaveUser)
                 .addContainerGap())
         );
@@ -159,11 +161,11 @@ int blo=0;
                             .addComponent(lblPass)
                             .addComponent(pwdPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblTypeUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTypeUser)
+                            .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addComponent(btnSaveUser)
                 .addContainerGap())
         );
@@ -265,7 +267,7 @@ int blo=0;
                         .addComponent(btnDeleteTowns)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSearchTowns)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(btnSaveCol)
                 .addContainerGap())
         );
@@ -303,7 +305,7 @@ int blo=0;
             panRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panRegistroLayout.setVerticalGroup(
@@ -311,7 +313,7 @@ int blo=0;
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         tpnControl.addTab("Registros", panRegistro);
@@ -331,14 +333,14 @@ int blo=0;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tpnControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDesbloquear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCanselar)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(tpnControl)
-                        .addContainerGap())))
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,6 +359,8 @@ int blo=0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDesbloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearActionPerformed
+        System.out.println("llego al boton");
+        FullListUs();
         String pass = "Leo";
         if (blo==0){
         JFrame frame = new JFrame("InputDialog Example");
@@ -428,13 +432,13 @@ int blo=0;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddTowns;
-    private javax.swing.JButton btnCanselar;
-    private javax.swing.JButton btnDeleteTowns;
-    private javax.swing.JButton btnDesbloquear;
-    private javax.swing.JButton btnSaveCol;
-    private javax.swing.JButton btnSaveUser;
-    private javax.swing.JButton btnSearchTowns;
+    public javax.swing.JButton btnAddTowns;
+    private static final javax.swing.JButton btnCanselar = new javax.swing.JButton();
+    public javax.swing.JButton btnDeleteTowns;
+    public static javax.swing.JButton btnDesbloquear;
+    public javax.swing.JButton btnSaveCol;
+    public static final javax.swing.JButton btnSaveUser = new javax.swing.JButton();
+    public javax.swing.JButton btnSearchTowns;
     private javax.swing.JComboBox<String> cmbTypeUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -447,16 +451,16 @@ int blo=0;
     private javax.swing.JLabel lblTowns;
     private javax.swing.JLabel lblTypeUser;
     private javax.swing.JLabel lblUser;
-    private javax.swing.JList<String> lstDepartments;
-    private javax.swing.JList<String> lstTown;
-    private javax.swing.JList<String> lstTownships;
+    public javax.swing.JList<String> lstDepartments;
+    public javax.swing.JList<String> lstTown;
+    public javax.swing.JList<String> lstTownships;
     private javax.swing.JList<String> lstUser;
     private javax.swing.JPanel panRegistro;
     private javax.swing.JPanel panTowns;
     private javax.swing.JPanel panUser;
     private javax.swing.JPasswordField pwdPass;
-    private javax.swing.JTable tblHistory;
-    private javax.swing.JTabbedPane tpnControl;
+    public javax.swing.JTable tblHistory;
+    public javax.swing.JTabbedPane tpnControl;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

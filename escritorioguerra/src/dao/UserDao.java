@@ -5,6 +5,7 @@ import conexion.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -94,15 +95,36 @@ public class UserDao extends Conexion {
             System.err.println(ex);
         } finally { super.cerrar(); }
 
-    }public void displayUser(){
+    }
+    
+    public ArrayList<User> displayUser(){
+        User us;
+        ArrayList<User> usuario = new ArrayList();
+        ResultSet datos=null;
+        int indice = 0;
         try {
-        super.conectar();
-        String displayUS = "CALL displayUser";
+            super.conectar();
+            String displayUS = "CALL displayUser()";
             PreparedStatement dplUs = super.getConexion().prepareCall(displayUS);
+            datos = dplUs.executeQuery();
+            
+            while (datos.next()) {                
+                us = new User();
+                
+                us.setUsername(datos.getString("username"));
+                us.setPass(datos.getString("pass"));
+                us.setIdUserType(datos.getInt("id_user_type"));
+                
+                usuario.add(us);
+                
+                System.out.println("Nombre de usuario: " + usuario.get(indice).getUsername());
+                indice++;
+            }
         } catch (SQLException ex) {
             System.err.println(ex);
         } finally { super.cerrar();}
         
+        return usuario;
     }
     
 }

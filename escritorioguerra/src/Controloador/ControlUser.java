@@ -1,11 +1,15 @@
 package Controloador;
 
+import classes.User;
 import dao.UserDao;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
 import vistas.IfrmSystem;
 
 public class ControlUser implements ActionListener{
     
+    DefaultListModel <User> listUser = new DefaultListModel();
     IfrmSystem viewUser =  new IfrmSystem();
     UserDao usdao = new UserDao();
     
@@ -16,14 +20,48 @@ public class ControlUser implements ActionListener{
     public ControlUser(IfrmSystem viewUser1, UserDao usdao1 ) {
         System.out.println("ControladorCliente: Constructor");
         
-        this.modeloCliente = modeloCli;
-        this.vistaCliente = vistaCli;
+        this.viewUser = viewUser1;
+        this.usdao = usdao1;
         
-        this.vistaCliente.btnInsert.setActionCommand("Insertar");
-        this.vistaCliente.btnInsert.addActionListener(this);
+        this.viewUser.btnSaveUser.setActionCommand("Insertar");
+        this.viewUser.btnSaveUser.addActionListener(this);
         
         
-        this.vistaCliente.btnSelect.setActionCommand("Seleccionar");
-        this.vistaCliente.btnSelect.addActionListener(this);
+    }
+    
+    public void FullListUs(){
         
+        int Nus = usdao.displayUser().size();
+        
+        for (int i = 0; i < Nus; i++) {
+            System.out.println("llego al boton");
+            listUser.addElement(usdao.displayUser().get(i));
+            
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String evento = ae.getActionCommand();
+             
+        /* 
+        if (evento.equals("Insertar")) {
+            System.out.println("he llegado a insertar");
+            insertCliente();
+            LlenarTabla(vistaCliente.tblClientes);
+            
+        }
+        
+        if (evento.equals("Seleccionar")){
+            System.out.println("Clic para ver tabla");
+            LlenarTabla(vistaCliente.tblClientes);
+        }
+        
+        //otra forma para manejar eventos
+        if (ae.getSource()== vistaCliente.btnSelect){
+            System.out.println("Click en el boton mostrar");
+            LlenarTabla(vistaCliente.tblClientes);
+        }*/
+            }
 }
