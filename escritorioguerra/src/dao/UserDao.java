@@ -101,7 +101,7 @@ public class UserDao extends Conexion {
         User us;
         ArrayList<User> usuario = new ArrayList();
         ResultSet datos=null;
-        int indice = 0;
+        //int indice = 0;
         try {
             super.conectar();
             String displayUS = "CALL displayUser()";
@@ -117,8 +117,8 @@ public class UserDao extends Conexion {
                 
                 usuario.add(us);
                 
-                System.out.println("Nombre de usuario: " + usuario.get(indice).getUsername());
-                indice++;
+               //System.out.println("Nombre de usuario: " + usuario.get(indice).getUsername());
+                //indice++;
             }
         } catch (SQLException ex) {
             System.err.println(ex);

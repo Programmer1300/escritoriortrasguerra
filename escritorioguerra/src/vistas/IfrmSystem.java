@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import Controloador.ControlUser;
 
 
 /*
@@ -360,7 +359,6 @@ int blo=0;
 
     private void btnDesbloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearActionPerformed
         System.out.println("llego al boton");
-        FullListUs();
         String pass = "Leo";
         if (blo==0){
         JFrame frame = new JFrame("InputDialog Example");
@@ -439,7 +437,7 @@ int blo=0;
     public javax.swing.JButton btnSaveCol;
     public static final javax.swing.JButton btnSaveUser = new javax.swing.JButton();
     public javax.swing.JButton btnSearchTowns;
-    private javax.swing.JComboBox<String> cmbTypeUser;
+    public javax.swing.JComboBox<String> cmbTypeUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -454,13 +452,13 @@ int blo=0;
     public javax.swing.JList<String> lstDepartments;
     public javax.swing.JList<String> lstTown;
     public javax.swing.JList<String> lstTownships;
-    private javax.swing.JList<String> lstUser;
+    public static javax.swing.JList<String> lstUser;
     private javax.swing.JPanel panRegistro;
     private javax.swing.JPanel panTowns;
     private javax.swing.JPanel panUser;
-    private javax.swing.JPasswordField pwdPass;
+    public javax.swing.JPasswordField pwdPass;
     public javax.swing.JTable tblHistory;
     public javax.swing.JTabbedPane tpnControl;
-    private javax.swing.JTextField txtUser;
+    public javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
