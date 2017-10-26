@@ -21,12 +21,15 @@ public final class ControlUser implements ActionListener{
         
         this.viewUser = viewUser1;
         this.usdao = usdao1;
-        FullListUs();
         
         this.viewUser.btnSaveUser.setActionCommand("Insertar");
         this.viewUser.btnSaveUser.addActionListener(this);
          
         
+    }
+
+    public ControlUser() {
+       FullListUs();
     }
     
     public void FullListUs(){

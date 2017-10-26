@@ -32,11 +32,13 @@ public class frmExtraguerra extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Clientes");
 
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-search-icon.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Busqueda por codigo");
         cutMenuItem.setToolTipText("");
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/office-building-icon.png"))); // NOI18N
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Busqueda por colonia");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -46,8 +48,14 @@ public class frmExtraguerra extends javax.swing.JFrame {
         });
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book.png"))); // NOI18N
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Listados");
+        pasteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasteMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(pasteMenuItem);
 
         menuBar.add(editMenu);
@@ -56,10 +64,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
         helpMenu.setText("Cobros");
         helpMenu.setToolTipText("Menu para inprimir resivos y facturas");
 
+        contentMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
         contentMenuItem.setMnemonic('c');
         contentMenuItem.setText("Inprimir Resivo");
         helpMenu.add(contentMenuItem);
 
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/email.png"))); // NOI18N
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("Resibo espesifico");
         helpMenu.add(aboutMenuItem);
@@ -71,7 +81,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
         fileMenu.setToolTipText("control del sistema");
         fileMenu.setIconTextGap(5);
 
-        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajustes (2).png"))); // NOI18N
+        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajusC.png"))); // NOI18N
         opUser.setMnemonic('o');
         opUser.setText("Usuarios");
         opUser.setToolTipText("administracion de los usuarios y permisos");
@@ -144,6 +154,10 @@ public class frmExtraguerra extends javax.swing.JFrame {
         this.desktopPane.add(t);
         t.setVisible(true);
     }//GEN-LAST:event_copyMenuItemActionPerformed
+
+    private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

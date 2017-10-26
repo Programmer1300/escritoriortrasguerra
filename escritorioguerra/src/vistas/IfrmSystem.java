@@ -1,5 +1,6 @@
 package vistas;
 
+import Controloador.ControlUser;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,10 +42,9 @@ int blo=0;
         this.lblPass.setEnabled(false);
         this.txtUser.setEnabled(false);
         this.tblHistory.setEnabled(false);
-        
-        
-        
 
+        
+        
     }
 
     /**
@@ -418,7 +418,6 @@ int blo=0;
             blo = 0;
         }    
     }//GEN-LAST:event_btnDesbloquearActionPerformed
-
     private void btnCanselarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanselarActionPerformed
         try {
             // TODO add your handling code here:
