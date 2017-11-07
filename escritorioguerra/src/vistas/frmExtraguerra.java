@@ -14,9 +14,9 @@ public class frmExtraguerra extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
+        mniNameCode = new javax.swing.JMenuItem();
+        mniSearchTown = new javax.swing.JMenuItem();
+        mniList = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -32,31 +32,36 @@ public class frmExtraguerra extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Clientes");
 
-        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-search-icon.png"))); // NOI18N
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Busqueda por codigo");
-        cutMenuItem.setToolTipText("");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/office-building-icon.png"))); // NOI18N
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Busqueda por colonia");
-        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        mniNameCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-search-icon.png"))); // NOI18N
+        mniNameCode.setMnemonic('t');
+        mniNameCode.setText("Busqueda por codigo");
+        mniNameCode.setToolTipText("");
+        mniNameCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copyMenuItemActionPerformed(evt);
+                mniNameCodeActionPerformed(evt);
             }
         });
-        editMenu.add(copyMenuItem);
+        editMenu.add(mniNameCode);
 
-        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book.png"))); // NOI18N
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Listados");
-        pasteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        mniSearchTown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/office-building-icon.png"))); // NOI18N
+        mniSearchTown.setMnemonic('y');
+        mniSearchTown.setText("Busqueda por colonia");
+        mniSearchTown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pasteMenuItemActionPerformed(evt);
+                mniSearchTownActionPerformed(evt);
             }
         });
-        editMenu.add(pasteMenuItem);
+        editMenu.add(mniSearchTown);
+
+        mniList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book.png"))); // NOI18N
+        mniList.setMnemonic('p');
+        mniList.setText("Listados");
+        mniList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListActionPerformed(evt);
+            }
+        });
+        editMenu.add(mniList);
 
         menuBar.add(editMenu);
 
@@ -137,9 +142,9 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
     private void opUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opUserActionPerformed
         // TODO add your handling code here:
-        IfrmSystem u = new IfrmSystem();
-        this.desktopPane.add(u);
-        u.setVisible(true);
+        IfrmSystem a = new IfrmSystem();
+        this.desktopPane.add(a);
+        a.setVisible(true);
     }//GEN-LAST:event_opUserActionPerformed
 
     private void opLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLogoutActionPerformed
@@ -148,16 +153,23 @@ public class frmExtraguerra extends javax.swing.JFrame {
      this.setVisible(false);
     }//GEN-LAST:event_opLogoutActionPerformed
 
-    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+    private void mniSearchTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSearchTownActionPerformed
         // TODO add your handling code here:
-        Ifrmsearchtown t = new Ifrmsearchtown();
-        this.desktopPane.add(t);
-        t.setVisible(true);
-    }//GEN-LAST:event_copyMenuItemActionPerformed
+        IfrmSearchTown s = new IfrmSearchTown();
+        this.desktopPane.add(s);
+        s.setVisible(true);
+    }//GEN-LAST:event_mniSearchTownActionPerformed
 
-    private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
+    private void mniListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pasteMenuItemActionPerformed
+    }//GEN-LAST:event_mniListActionPerformed
+
+    private void mniNameCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniNameCodeActionPerformed
+        // TODO add your handling code here:
+        IfrmFindCustomers d = new IfrmFindCustomers();
+        this.desktopPane.add(d);
+        d.setVisible(true);
+    }//GEN-LAST:event_mniNameCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,17 +210,17 @@ public class frmExtraguerra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem mniList;
+    private javax.swing.JMenuItem mniNameCode;
+    private javax.swing.JMenuItem mniSearchTown;
     private javax.swing.JMenuItem opLogout;
     private javax.swing.JMenuItem opUser;
-    private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
