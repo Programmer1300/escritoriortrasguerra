@@ -43,7 +43,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="mniList">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/Icons/book.png"/>
+                  <Image iconType="3" name="/resources/Icons/lista (1).png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="112"/>
                 <Property name="text" type="java.lang.String" value="Listados"/>

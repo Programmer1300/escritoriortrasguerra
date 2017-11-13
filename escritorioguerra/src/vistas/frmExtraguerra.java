@@ -53,7 +53,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
         });
         editMenu.add(mniSearchTown);
 
-        mniList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book.png"))); // NOI18N
+        mniList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/lista (1).png"))); // NOI18N
         mniList.setMnemonic('p');
         mniList.setText("Listados");
         mniList.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
     private void mniSearchTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSearchTownActionPerformed
         // TODO add your handling code here:
-        IfrmSearchTown s = new IfrmSearchTown();
+        Ifrmsearchtown s = new Ifrmsearchtown();
         this.desktopPane.add(s);
         s.setVisible(true);
     }//GEN-LAST:event_mniSearchTownActionPerformed
