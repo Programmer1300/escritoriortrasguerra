@@ -5,6 +5,10 @@
  */
 package vistas;
 
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author javam
@@ -30,7 +34,6 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
         btgMonths = new javax.swing.ButtonGroup();
         tpnControl = new javax.swing.JTabbedPane();
         panUser = new javax.swing.JPanel();
-        btnSaveUser = new javax.swing.JButton();
         lblColonia1 = new javax.swing.JLabel();
         txtColonia1 = new javax.swing.JTextField();
         jrbEnero = new javax.swing.JRadioButton();
@@ -55,16 +58,11 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
         cmbTypeUser = new javax.swing.JComboBox<>();
         cmbTypeUser1 = new javax.swing.JComboBox<>();
         cmbTypeUser2 = new javax.swing.JComboBox<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblHistory1 = new javax.swing.JTable();
 
         setBorder(null);
         setIconifiable(true);
         setToolTipText("gestor de cobors");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/cuaderno.png"))); // NOI18N
-
-        btnSaveUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
-        btnSaveUser.setToolTipText("Guardar");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/comprobar (1).png"))); // NOI18N
 
         lblColonia1.setText("Colonia ");
 
@@ -160,7 +158,6 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
                                         .addComponent(jrbNoviembre)
                                         .addGap(25, 25, 25)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jrbJunio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jrbJulio)
@@ -179,11 +176,7 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSaveUser)
-                .addGap(71, 71, 71))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         panUserLayout.setVerticalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +203,7 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
                     .addComponent(txtColonia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSaveUser)
-                .addContainerGap())
+                .addGap(60, 60, 60))
         );
 
         tpnControl.addTab("Ya pagados", panUser);
@@ -235,31 +226,6 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
 
         cmbTypeUser2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tblHistory1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "User", "Fecha", "Paginas"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tblHistory1);
-
         javax.swing.GroupLayout panTownsLayout = new javax.swing.GroupLayout(panTowns);
         panTowns.setLayout(panTownsLayout);
         panTownsLayout.setHorizontalGroup(
@@ -270,21 +236,18 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15))
             .addGroup(panTownsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane4)
-                    .addGroup(panTownsLayout.createSequentialGroup()
-                        .addComponent(lblDep)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMuni)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbTypeUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTowns)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbTypeUser2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(lblDep)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMuni)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbTypeUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTowns)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbTypeUser2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         panTownsLayout.setVerticalGroup(
             panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,44 +262,64 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDep, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
                 .addComponent(btnSaveCol)
                 .addGap(16, 16, 16))
         );
 
         tpnControl.addTab("ejecutar pagos", panTowns);
 
+        btnCanselar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
+        btnCanselar1.setToolTipText("Cerrar");
+        btnCanselar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCanselar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(738, Short.MAX_VALUE)
+                .addComponent(btnCanselar1)
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(tpnControl, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tpnControl, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tpnControl, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCanselar1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCanselar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanselar1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            this.setClosed(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(IfrmSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCanselar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgMonths;
-    private javax.swing.JButton btnSaveCol;
-    private javax.swing.JButton btnSaveUser;
+    private static final javax.swing.JButton btnCanselar1 = new javax.swing.JButton();
+    public javax.swing.JButton btnSaveCol;
     public javax.swing.JComboBox<String> cmbTypeUser;
     public javax.swing.JComboBox<String> cmbTypeUser1;
     public javax.swing.JComboBox<String> cmbTypeUser2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JRadioButton jrbAbril;
     private javax.swing.JRadioButton jrbAgosto;
     private javax.swing.JRadioButton jrbDiciembre;
@@ -356,8 +339,7 @@ public class IfrmPayments extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panTowns;
     private javax.swing.JPanel panUser;
     public javax.swing.JTable tblHistory;
-    public javax.swing.JTable tblHistory1;
-    private javax.swing.JTabbedPane tpnControl;
-    private javax.swing.JTextField txtColonia1;
+    public javax.swing.JTabbedPane tpnControl;
+    public javax.swing.JTextField txtColonia1;
     // End of variables declaration//GEN-END:variables
 }

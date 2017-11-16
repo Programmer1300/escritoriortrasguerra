@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import Controloador.formControl;
+
 
 
 /**
@@ -141,10 +143,12 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         frmExtraguerra nun = new frmExtraguerra();
       nun.setTitle("Extracción de basura    Trasportes Guerra");
-      //nun.setExtendedState(6);
+      //nun.setExtendedState(10);
       //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
       nun.setVisible(true);
       this.setVisible(false);
+      formControl zz = new formControl();
+      zz.botones(nun);
      
     }//GEN-LAST:event_btnLoginActionPerformed
 

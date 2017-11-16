@@ -13,24 +13,25 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        editMenu = new javax.swing.JMenu();
+        mnuCostomer = new javax.swing.JMenu();
         mniNameCode = new javax.swing.JMenuItem();
         mniSearchTown = new javax.swing.JMenuItem();
         mniList = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
-        fileMenu = new javax.swing.JMenu();
-        opUser = new javax.swing.JMenuItem();
-        opLogout = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
+        mniPrinter = new javax.swing.JMenuItem();
+        mniOneBill = new javax.swing.JMenuItem();
+        mniPayments = new javax.swing.JMenuItem();
+        mniUsers = new javax.swing.JMenu();
+        mniUser = new javax.swing.JMenuItem();
+        mniSignOff = new javax.swing.JMenuItem();
+        mniOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Clientes");
+        mnuCostomer.setMnemonic('e');
+        mnuCostomer.setText("Clientes");
 
         mniNameCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-search-icon.png"))); // NOI18N
         mniNameCode.setMnemonic('t');
@@ -41,7 +42,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
                 mniNameCodeActionPerformed(evt);
             }
         });
-        editMenu.add(mniNameCode);
+        mnuCostomer.add(mniNameCode);
 
         mniSearchTown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/office-building-icon.png"))); // NOI18N
         mniSearchTown.setMnemonic('y');
@@ -51,7 +52,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
                 mniSearchTownActionPerformed(evt);
             }
         });
-        editMenu.add(mniSearchTown);
+        mnuCostomer.add(mniSearchTown);
 
         mniList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/lista (1).png"))); // NOI18N
         mniList.setMnemonic('p');
@@ -61,62 +62,71 @@ public class frmExtraguerra extends javax.swing.JFrame {
                 mniListActionPerformed(evt);
             }
         });
-        editMenu.add(mniList);
+        mnuCostomer.add(mniList);
 
-        menuBar.add(editMenu);
+        menuBar.add(mnuCostomer);
 
         helpMenu.setMnemonic('h');
         helpMenu.setText("Cobros");
         helpMenu.setToolTipText("Menu para inprimir resivos y facturas");
 
-        contentMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Inprimir Resivo");
-        helpMenu.add(contentMenuItem);
+        mniPrinter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
+        mniPrinter.setMnemonic('c');
+        mniPrinter.setText("Inprimir Resivo");
+        helpMenu.add(mniPrinter);
 
-        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/email.png"))); // NOI18N
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Resibo espesifico");
-        helpMenu.add(aboutMenuItem);
+        mniOneBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/email.png"))); // NOI18N
+        mniOneBill.setMnemonic('a');
+        mniOneBill.setText("Resibo espesifico");
+        helpMenu.add(mniOneBill);
+
+        mniPayments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/comprobar.png"))); // NOI18N
+        mniPayments.setText("Pagos");
+        mniPayments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniPaymentsActionPerformed(evt);
+            }
+        });
+        helpMenu.add(mniPayments);
 
         menuBar.add(helpMenu);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Sistema");
-        fileMenu.setToolTipText("control del sistema");
-        fileMenu.setIconTextGap(5);
+        mniUsers.setMnemonic('f');
+        mniUsers.setText("Sistema");
+        mniUsers.setToolTipText("control del sistema");
+        mniUsers.setIconTextGap(5);
 
-        opUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajusC.png"))); // NOI18N
-        opUser.setMnemonic('o');
-        opUser.setText("Usuarios");
-        opUser.setToolTipText("administracion de los usuarios y permisos");
-        opUser.addActionListener(new java.awt.event.ActionListener() {
+        mniUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajusC.png"))); // NOI18N
+        mniUser.setMnemonic('o');
+        mniUser.setText("Usuarios");
+        mniUser.setToolTipText("administracion de los usuarios y permisos");
+        mniUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opUserActionPerformed(evt);
+                mniUserActionPerformed(evt);
             }
         });
-        fileMenu.add(opUser);
+        mniUsers.add(mniUser);
 
-        opLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
-        opLogout.setText("Cerrar sesion");
-        opLogout.addActionListener(new java.awt.event.ActionListener() {
+        mniSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Log-Out-icon.png"))); // NOI18N
+        mniSignOff.setText("Cerrar sesion");
+        mniSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLogoutActionPerformed(evt);
+                mniSignOffActionPerformed(evt);
             }
         });
-        fileMenu.add(opLogout);
+        mniUsers.add(mniSignOff);
 
-        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Salir");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        mniOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Exit-icon.png"))); // NOI18N
+        mniOut.setMnemonic('x');
+        mniOut.setText("Salir");
+        mniOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                mniOutActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        mniUsers.add(mniOut);
 
-        menuBar.add(fileMenu);
+        menuBar.add(mniUsers);
 
         setJMenuBar(menuBar);
 
@@ -125,39 +135,36 @@ public class frmExtraguerra extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1952, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void mniOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniOutActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_mniOutActionPerformed
 
-    private void opUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opUserActionPerformed
+    private void mniUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniUserActionPerformed
         // TODO add your handling code here:
         IfrmSystem a = new IfrmSystem();
         this.desktopPane.add(a);
         a.setVisible(true);
-    }//GEN-LAST:event_opUserActionPerformed
+    }//GEN-LAST:event_mniUserActionPerformed
 
-    private void opLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLogoutActionPerformed
+    private void mniSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSignOffActionPerformed
         // TODO add your handling code here:
       Escritorioguerra.ini.setVisible(true);
      this.setVisible(false);
-    }//GEN-LAST:event_opLogoutActionPerformed
+    }//GEN-LAST:event_mniSignOffActionPerformed
 
     private void mniSearchTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSearchTownActionPerformed
         // TODO add your handling code here:
-        Ifrmsearchtown s = new Ifrmsearchtown();
-        this.desktopPane.add(s);
-        s.setVisible(true);
     }//GEN-LAST:event_mniSearchTownActionPerformed
 
     private void mniListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListActionPerformed
@@ -166,10 +173,15 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
     private void mniNameCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniNameCodeActionPerformed
         // TODO add your handling code here:
-        IfrmFindCustomers d = new IfrmFindCustomers();
-        this.desktopPane.add(d);
-        d.setVisible(true);
+     
     }//GEN-LAST:event_mniNameCodeActionPerformed
+
+    private void mniPaymentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPaymentsActionPerformed
+        // TODO add your handling code here:
+        IfrmPayments e = new IfrmPayments();
+        this.desktopPane.add(e);
+        e.setVisible(true);
+    }//GEN-LAST:event_mniPaymentsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,19 +220,20 @@ public class frmExtraguerra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
+    public javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem mniList;
-    private javax.swing.JMenuItem mniNameCode;
-    private javax.swing.JMenuItem mniSearchTown;
-    private javax.swing.JMenuItem opLogout;
-    private javax.swing.JMenuItem opUser;
+    public javax.swing.JMenuItem mniList;
+    public javax.swing.JMenuItem mniNameCode;
+    private javax.swing.JMenuItem mniOneBill;
+    private javax.swing.JMenuItem mniOut;
+    private javax.swing.JMenuItem mniPayments;
+    private javax.swing.JMenuItem mniPrinter;
+    public javax.swing.JMenuItem mniSearchTown;
+    private javax.swing.JMenuItem mniSignOff;
+    private javax.swing.JMenuItem mniUser;
+    private javax.swing.JMenu mniUsers;
+    public javax.swing.JMenu mnuCostomer;
     // End of variables declaration//GEN-END:variables
 
 }

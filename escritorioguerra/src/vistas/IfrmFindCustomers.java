@@ -19,7 +19,23 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
      * Creates new form IfrmFindCustomers
      */
     public IfrmFindCustomers() {
+        
+        
         initComponents();
+        this.panCodeName.setVisible(false);
+        this.panTown.setVisible(false);
+        this.panList.setVisible(false);
+        this.lblNameCode.setVisible(false);
+        this.lbldepartment.setVisible(false);
+        this.lbltownship.setVisible(false);
+        this.lblTown.setVisible(false);
+        this.lblListType.setVisible(false);
+        this.txtNameCode.setVisible(false);
+        this.cmbDepartment.setVisible(false);
+        this.cmbTownships.setVisible(false);
+        this.cmbTown.setVisible(false);
+        this.cmbListType.setVisible(false);
+        
     }
 
     /**
@@ -31,25 +47,51 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mnuOpition = new javax.swing.JPopupMenu();
+        mniModi = new javax.swing.JMenuItem();
+        mniDel = new javax.swing.JMenuItem();
+        mniAddServis = new javax.swing.JMenuItem();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblTown = new javax.swing.JTable();
         btnNewCus = new javax.swing.JButton();
-        btnModify = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnAddServis = new javax.swing.JButton();
         btnCanselar = new javax.swing.JButton();
+        btnReport = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panTown = new javax.swing.JPanel();
+        cmbDepartment = new javax.swing.JComboBox<>();
+        lbldepartment = new javax.swing.JLabel();
+        lbltownship = new javax.swing.JLabel();
+        cmbTownships = new javax.swing.JComboBox<>();
+        cmbTown = new javax.swing.JComboBox<>();
+        lblTown = new javax.swing.JLabel();
+        panCodeName = new javax.swing.JPanel();
         lblNameCode = new javax.swing.JLabel();
         txtNameCode = new javax.swing.JTextField();
-        btnReport = new javax.swing.JButton();
+        panList = new javax.swing.JPanel();
+        lblListType = new javax.swing.JLabel();
+        cmbListType = new javax.swing.JComboBox<>();
+
+        mnuOpition.setToolTipText("");
+
+        mniModi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-edit-icon.png"))); // NOI18N
+        mniModi.setText("Modificar");
+        mnuOpition.add(mniModi);
+
+        mniDel.setText("jMenuItem1");
+        mnuOpition.add(mniDel);
+
+        mniAddServis.setText("jMenuItem1");
+        mnuOpition.add(mniAddServis);
 
         setBorder(null);
         setIconifiable(true);
         setResizable(true);
         setTitle("Busqueda por codigo o Nombre");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/telemarketer.png"))); // NOI18N
 
         tblTown.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null}
             },
             new String [] {
                 "ID", "Nombre", "Cuota", "Direccíon"
@@ -70,19 +112,17 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblTown.setComponentPopupMenu(mnuOpition);
+        tblTown.setInheritsPopupMenu(true);
         jScrollPane3.setViewportView(tblTown);
 
         btnNewCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-add-icon.png"))); // NOI18N
         btnNewCus.setToolTipText("Nuevo");
-
-        btnModify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-edit-icon.png"))); // NOI18N
-        btnModify.setToolTipText("Modificar");
-
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-delete-icon.png"))); // NOI18N
-        btnDelete.setToolTipText("Eliminar");
-
-        btnAddServis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
-        btnAddServis.setToolTipText("Abregar Servisio");
+        btnNewCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewCusActionPerformed(evt);
+            }
+        });
 
         btnCanselar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
         btnCanselar.setToolTipText("Cerrar");
@@ -92,69 +132,206 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
             }
         });
 
+        btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book_addresses.png"))); // NOI18N
+        btnReport.setToolTipText("Abregar Servisio");
+
+        cmbDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartmentActionPerformed(evt);
+            }
+        });
+
+        lbldepartment.setText("Departamento");
+
+        lbltownship.setText("Municipios");
+
+        cmbTownships.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbTown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblTown.setText("Colonia");
+
+        javax.swing.GroupLayout panTownLayout = new javax.swing.GroupLayout(panTown);
+        panTown.setLayout(panTownLayout);
+        panTownLayout.setHorizontalGroup(
+            panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panTownLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panTownLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(lbldepartment)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panTownLayout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addComponent(lbltownship)
+                            .addGap(109, 109, 109)
+                            .addComponent(lblTown))
+                        .addGroup(panTownLayout.createSequentialGroup()
+                            .addComponent(cmbTownships, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cmbTown, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(17, Short.MAX_VALUE)))
+        );
+        panTownLayout.setVerticalGroup(
+            panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panTownLayout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbldepartment)
+                        .addComponent(lbltownship)
+                        .addComponent(lblTown))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(panTownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTownships, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(17, Short.MAX_VALUE)))
+        );
+
         lblNameCode.setText("Ingrese el  Codigo o el nombre del cliente ");
 
         txtNameCode.setToolTipText("Nombre o Codio ");
+        txtNameCode.setComponentPopupMenu(mnuOpition);
 
-        btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book_addresses.png"))); // NOI18N
-        btnReport.setToolTipText("Abregar Servisio");
+        javax.swing.GroupLayout panCodeNameLayout = new javax.swing.GroupLayout(panCodeName);
+        panCodeName.setLayout(panCodeNameLayout);
+        panCodeNameLayout.setHorizontalGroup(
+            panCodeNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCodeNameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panCodeNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNameCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNameCode))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        panCodeNameLayout.setVerticalGroup(
+            panCodeNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCodeNameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNameCode)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNameCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lblListType.setText("Listar servisios por :");
+
+        cmbListType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panListLayout = new javax.swing.GroupLayout(panList);
+        panList.setLayout(panListLayout);
+        panListLayout.setHorizontalGroup(
+            panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panListLayout.createSequentialGroup()
+                .addComponent(cmbListType, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
+            .addGroup(panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panListLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblListType)
+                    .addContainerGap(67, Short.MAX_VALUE)))
+        );
+        panListLayout.setVerticalGroup(
+            panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panListLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(cmbListType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panListLayout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(lblListType)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+
+        jLayeredPane1.setLayer(panTown, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(panCodeName, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(panList, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 572, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panTown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(157, 157, 157)
+                    .addComponent(panCodeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(157, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(191, 191, 191)
+                    .addComponent(panList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(192, Short.MAX_VALUE)))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 112, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(panTown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(27, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(panCodeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(33, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblNameCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNameCode))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(btnNewCus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnCanselar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddServis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNewCus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 32, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 32, Short.MAX_VALUE)))
+                        .addComponent(btnReport))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCanselar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblNameCode)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNameCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnAddServis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNewCus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReport, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 376, Short.MAX_VALUE)
-                        .addComponent(btnCanselar)))
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnReport)
+                            .addComponent(btnNewCus))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCanselar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,17 +346,38 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnCanselarActionPerformed
 
+    private void cmbDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartmentActionPerformed
+
+    }//GEN-LAST:event_cmbDepartmentActionPerformed
+
+    private void btnNewCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewCusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddServis;
     private javax.swing.JButton btnCanselar;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnModify;
     private javax.swing.JButton btnNewCus;
     private javax.swing.JButton btnReport;
+    public javax.swing.JComboBox<String> cmbDepartment;
+    public javax.swing.JComboBox<String> cmbListType;
+    public javax.swing.JComboBox<String> cmbTown;
+    public javax.swing.JComboBox<String> cmbTownships;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblNameCode;
+    public javax.swing.JLabel lblListType;
+    public javax.swing.JLabel lblNameCode;
+    public javax.swing.JLabel lblTown;
+    public javax.swing.JLabel lbldepartment;
+    public javax.swing.JLabel lbltownship;
+    private javax.swing.JMenuItem mniAddServis;
+    private javax.swing.JMenuItem mniDel;
+    private javax.swing.JMenuItem mniModi;
+    private javax.swing.JPopupMenu mnuOpition;
+    public javax.swing.JPanel panCodeName;
+    public javax.swing.JPanel panList;
+    public javax.swing.JPanel panTown;
     private javax.swing.JTable tblTown;
-    private javax.swing.JTextField txtNameCode;
+    public javax.swing.JTextField txtNameCode;
     // End of variables declaration//GEN-END:variables
 }

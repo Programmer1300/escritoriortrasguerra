@@ -29,7 +29,6 @@ public final class ControlUser implements ActionListener{
     }
 
     public ControlUser() {
-       FullListUs();
     }
     
     public void FullListUs(){
@@ -43,6 +42,7 @@ public final class ControlUser implements ActionListener{
         }
         viewUser.lstUser.setModel(listUser);
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent ae) {
