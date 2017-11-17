@@ -49,8 +49,12 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
 
         mnuOpition = new javax.swing.JPopupMenu();
         mniModi = new javax.swing.JMenuItem();
+        mnuState = new javax.swing.JMenu();
         mniDel = new javax.swing.JMenuItem();
+        mniActi = new javax.swing.JMenuItem();
         mniAddServis = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mniPrinOne = new javax.swing.JMenuItem();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblTown = new javax.swing.JTable();
         btnNewCus = new javax.swing.JButton();
@@ -75,13 +79,45 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
 
         mniModi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-edit-icon.png"))); // NOI18N
         mniModi.setText("Modificar");
+        mniModi.setToolTipText("Modifica la información del clinete y servisios");
         mnuOpition.add(mniModi);
 
-        mniDel.setText("jMenuItem1");
-        mnuOpition.add(mniDel);
+        mnuState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
+        mnuState.setText("estados del servisio");
+        mnuState.setToolTipText("opciones de estado");
 
-        mniAddServis.setText("jMenuItem1");
+        mniDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/status_offline.png"))); // NOI18N
+        mniDel.setText("Inactivo");
+        mniDel.setToolTipText("canbia el estado del servisio a Inactivo");
+        mniDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniDelActionPerformed(evt);
+            }
+        });
+        mnuState.add(mniDel);
+
+        mniActi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/status_online.png"))); // NOI18N
+        mniActi.setText("Activar");
+        mniActi.setToolTipText("Canbia el estatus del servisio a activo");
+        mnuState.add(mniActi);
+
+        mnuOpition.add(mnuState);
+
+        mniAddServis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-add-icon.png"))); // NOI18N
+        mniAddServis.setText("Agregar servicio");
+        mniAddServis.setToolTipText("Agrega un servicio nuevo al cliente ");
+        mniAddServis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAddServisActionPerformed(evt);
+            }
+        });
         mnuOpition.add(mniAddServis);
+        mnuOpition.add(jSeparator1);
+
+        mniPrinOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
+        mniPrinOne.setText("Inprimir resivo");
+        mniPrinOne.setToolTipText("Inprime el resivo del servisio seleccionado");
+        mnuOpition.add(mniPrinOne);
 
         setBorder(null);
         setIconifiable(true);
@@ -233,23 +269,19 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
             .addGroup(panListLayout.createSequentialGroup()
                 .addComponent(cmbListType, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 14, Short.MAX_VALUE))
-            .addGroup(panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panListLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblListType)
-                    .addContainerGap(67, Short.MAX_VALUE)))
+            .addGroup(panListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblListType)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         panListLayout.setVerticalGroup(
             panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panListLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(lblListType)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbListType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-            .addGroup(panListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panListLayout.createSequentialGroup()
-                    .addGap(26, 26, 26)
-                    .addComponent(lblListType)
-                    .addContainerGap(58, Short.MAX_VALUE)))
+                .addGap(35, 35, 35))
         );
 
         jLayeredPane1.setLayer(panTown, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -354,6 +386,14 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewCusActionPerformed
 
+    private void mniDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mniDelActionPerformed
+
+    private void mniAddServisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAddServisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mniAddServisActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCanselar;
@@ -365,15 +405,19 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
     public javax.swing.JComboBox<String> cmbTownships;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JLabel lblListType;
     public javax.swing.JLabel lblNameCode;
     public javax.swing.JLabel lblTown;
     public javax.swing.JLabel lbldepartment;
     public javax.swing.JLabel lbltownship;
+    public javax.swing.JMenuItem mniActi;
     private javax.swing.JMenuItem mniAddServis;
     private javax.swing.JMenuItem mniDel;
     private javax.swing.JMenuItem mniModi;
+    public javax.swing.JMenuItem mniPrinOne;
     private javax.swing.JPopupMenu mnuOpition;
+    public javax.swing.JMenu mnuState;
     public javax.swing.JPanel panCodeName;
     public javax.swing.JPanel panList;
     public javax.swing.JPanel panTown;

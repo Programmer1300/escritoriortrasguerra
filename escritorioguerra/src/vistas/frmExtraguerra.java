@@ -19,7 +19,6 @@ public class frmExtraguerra extends javax.swing.JFrame {
         mniList = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         mniPrinter = new javax.swing.JMenuItem();
-        mniOneBill = new javax.swing.JMenuItem();
         mniPayments = new javax.swing.JMenuItem();
         mniUsers = new javax.swing.JMenu();
         mniUser = new javax.swing.JMenuItem();
@@ -74,11 +73,6 @@ public class frmExtraguerra extends javax.swing.JFrame {
         mniPrinter.setMnemonic('c');
         mniPrinter.setText("Inprimir Resivo");
         helpMenu.add(mniPrinter);
-
-        mniOneBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/email.png"))); // NOI18N
-        mniOneBill.setMnemonic('a');
-        mniOneBill.setText("Resibo espesifico");
-        helpMenu.add(mniOneBill);
 
         mniPayments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/comprobar.png"))); // NOI18N
         mniPayments.setText("Pagos");
@@ -147,20 +141,14 @@ public class frmExtraguerra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniOutActionPerformed
-        System.exit(0);
     }//GEN-LAST:event_mniOutActionPerformed
 
     private void mniUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniUserActionPerformed
         // TODO add your handling code here:
-        IfrmSystem a = new IfrmSystem();
-        this.desktopPane.add(a);
-        a.setVisible(true);
     }//GEN-LAST:event_mniUserActionPerformed
 
     private void mniSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSignOffActionPerformed
         // TODO add your handling code here:
-      Escritorioguerra.ini.setVisible(true);
-     this.setVisible(false);
     }//GEN-LAST:event_mniSignOffActionPerformed
 
     private void mniSearchTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSearchTownActionPerformed
@@ -177,10 +165,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
     }//GEN-LAST:event_mniNameCodeActionPerformed
 
     private void mniPaymentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPaymentsActionPerformed
-        // TODO add your handling code here:
-        IfrmPayments e = new IfrmPayments();
-        this.desktopPane.add(e);
-        e.setVisible(true);
+        // TODO add your handling code here: 
     }//GEN-LAST:event_mniPaymentsActionPerformed
 
     /**
@@ -225,13 +210,12 @@ public class frmExtraguerra extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     public javax.swing.JMenuItem mniList;
     public javax.swing.JMenuItem mniNameCode;
-    private javax.swing.JMenuItem mniOneBill;
-    private javax.swing.JMenuItem mniOut;
-    private javax.swing.JMenuItem mniPayments;
-    private javax.swing.JMenuItem mniPrinter;
+    public javax.swing.JMenuItem mniOut;
+    public javax.swing.JMenuItem mniPayments;
+    public javax.swing.JMenuItem mniPrinter;
     public javax.swing.JMenuItem mniSearchTown;
-    private javax.swing.JMenuItem mniSignOff;
-    private javax.swing.JMenuItem mniUser;
+    public javax.swing.JMenuItem mniSignOff;
+    public javax.swing.JMenuItem mniUser;
     private javax.swing.JMenu mniUsers;
     public javax.swing.JMenu mnuCostomer;
     // End of variables declaration//GEN-END:variables

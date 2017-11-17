@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import vistas.Escritorioguerra;
 import vistas.IfrmFindCustomers;
+import vistas.IfrmPayments;
+import vistas.IfrmSystem;
 import vistas.frmExtraguerra;
 
 public class formControl implements ActionListener {
@@ -23,6 +26,18 @@ public class formControl implements ActionListener {
         
         this.dad.mniList.setActionCommand("Listados");
         this.dad.mniList.addActionListener(this);
+        
+        this.dad.mniUser.setActionCommand("Usuarios");
+        this.dad.mniUser.addActionListener(this);
+        
+        this.dad.mniPayments.setActionCommand("Pagos");
+        this.dad.mniPayments.addActionListener(this);
+        
+        this.dad.mniSignOff.setActionCommand("Cerrar sesion");
+        this.dad.mniSignOff.addActionListener(this);
+        
+        this.dad.mniOut.setActionCommand("Salir");
+        this.dad.mniOut.addActionListener(this);
     }
 
     @Override
@@ -37,8 +52,6 @@ public class formControl implements ActionListener {
             a.panCodeName.setVisible(true);
             a.lblNameCode.setVisible(true);
             a.txtNameCode.setVisible(true);
-            
-
         }
 
         if (event.equals("Busqueda por colonia")) {
@@ -64,5 +77,26 @@ public class formControl implements ActionListener {
              Image icon = new ImageIcon(getClass().getResource("/resources/Icons/lista.png")).getImage();
             c.setFrameIcon((Icon) icon);
         }
+        
+        if (event.equals("Usuarios")){
+            IfrmSystem d = new IfrmSystem();
+            dad.desktopPane.add(d);
+            d.setVisible(true);
+        }
+        
+        if (event.equals("Pagos")){
+            IfrmPayments e = new IfrmPayments();
+            dad.desktopPane.add(e);
+            e.setVisible(true);
+        }
+        
+        if (event.equals("Cerrar sesion")){
+            Escritorioguerra.ini.setVisible(true);
+            dad.setVisible(false);
+        }
+        if (event.equals("Salir")){
+            System.exit(0);
+        }
+                
     }
 }
