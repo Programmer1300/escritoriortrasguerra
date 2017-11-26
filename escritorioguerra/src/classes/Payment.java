@@ -2,21 +2,41 @@ package classes;
 
 public class Payment {
 
+    private Customer customer;
+    private Month month;
+    private PaymentStatus payStatus;
     private int idPayment;
     private int idService;
     private String paymentDate;
-    private int idMonth;
     private double amount;
 
     public Payment() {
     }
 
-    public Payment(int idPayment, int idService, String paymentDate, int idMonth, double amount) {
+    public Payment(Customer customer, Month month, 
+                int idPayment, int idService, String paymentDate, double amount) {
+        this.customer = customer;
+        this.month = month;
         this.idPayment = idPayment;
         this.idService = idService;
         this.paymentDate = paymentDate;
-        this.idMonth = idMonth;
         this.amount = amount;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    public void setMonth(Month month) {
+        this.month = month;
     }
 
     public int getIdPayment() {
@@ -43,14 +63,6 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public int getIdMonth() {
-        return idMonth;
-    }
-
-    public void setIdMonth(int idMonth) {
-        this.idMonth = idMonth;
-    }
-
     public double getAmount() {
         return amount;
     }
@@ -58,7 +70,13 @@ public class Payment {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    
-    
+
+    public PaymentStatus getPayStatus() {
+      return payStatus;
+    }
+
+    public void setPayStatus(PaymentStatus payStatus) {
+      this.payStatus = payStatus;
+    }
     
 }
