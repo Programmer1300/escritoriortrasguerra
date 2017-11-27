@@ -103,7 +103,7 @@ public class UserDao extends Conexion {
         //int indice = 0;
         try {
             super.conectar();
-            String displayUS = "CALL displayUser()";
+            String displayUS = "CALL displayUser";
             PreparedStatement dplUs = super.getConexion().prepareCall(displayUS);
             datos = dplUs.executeQuery();
             
@@ -112,7 +112,7 @@ public class UserDao extends Conexion {
                 
                 us.setUsername(datos.getString("username"));
                 us.setPass(datos.getString("pass"));
-                us.setIdUserType(datos.getInt("id_user_type"));
+                us.setUserType(datos.getString("type_user"));
                 
                 usuario.add(us);
                 

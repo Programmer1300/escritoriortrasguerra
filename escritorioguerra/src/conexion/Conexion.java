@@ -11,7 +11,7 @@ public class Conexion {
     private Connection conexion;
     private final String DIRECCION = "jdbc:mysql://localhost:3306/dbextraguerra";
     private final String USUARIO ="root";
-    private final String CONTRA = "";
+    private final String CONTRA = "Leo525096";
 
     public Connection getConexion() {
         return conexion;
