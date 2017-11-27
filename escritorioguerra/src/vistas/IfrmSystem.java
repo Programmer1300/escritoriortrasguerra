@@ -1,12 +1,15 @@
 package vistas;
 
-import Controloador.ControlUser;
+import classes.User;
+import dao.UserDao;
 import java.beans.PropertyVetoException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /*
@@ -20,27 +23,23 @@ import javax.swing.JOptionPane;
  */
 public class IfrmSystem extends javax.swing.JInternalFrame {
 int blo=0;
+UserDao usdao = new UserDao();
+DefaultTableModel dtmUser;
     /**
      * Creates new form frmUser
      */
     public IfrmSystem() {
         initComponents();
         //this.tpnControl.setEnabled(false);
-        this.pwdPass.setEnabled(false);
+        this.tblUser.setEnabled(false);
         this.btnSaveCol.setEnabled(false);
-        this.btnSaveUser.setEnabled(false);
+        this.btnNewUser.setEnabled(false);
         this.btnAddTowns.setEnabled(false);
         this.btnDeleteTowns.setEnabled(false);
         this.btnSearchTowns.setEnabled(false);
-        this.cmbTypeUser.setEnabled(false);
-        this.lstUser.setEnabled(false);
         this.lstDepartments.setEnabled(false);
         this.lstTownships.setEnabled(false);
         this.lstTown.setEnabled(false);
-        this.lblUser.setEnabled(false);
-        this.lblTypeUser.setEnabled(false);
-        this.lblPass.setEnabled(false);
-        this.txtUser.setEnabled(false);
         this.tblHistory.setEnabled(false);
 
         
@@ -56,17 +55,13 @@ int blo=0;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        mnuModif = new javax.swing.JMenuItem();
         btnDesbloquear = new javax.swing.JButton();
         tpnControl = new javax.swing.JTabbedPane();
         panUser = new javax.swing.JPanel();
-        lblUser = new javax.swing.JLabel();
-        lblPass = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstUser = new javax.swing.JList<>();
-        txtUser = new javax.swing.JTextField();
-        pwdPass = new javax.swing.JPasswordField();
-        lblTypeUser = new javax.swing.JLabel();
-        cmbTypeUser = new javax.swing.JComboBox<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblUser = new javax.swing.JTable();
         panTowns = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstTown = new javax.swing.JList<>();
@@ -85,6 +80,9 @@ int blo=0;
         jScrollPane3 = new javax.swing.JScrollPane();
         tblHistory = new javax.swing.JTable();
 
+        mnuModif.setText("jMenuItem1");
+        jPopupMenu1.add(mnuModif);
+
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setIconifiable(true);
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajustes (2).png"))); // NOI18N
@@ -96,76 +94,57 @@ int blo=0;
             }
         });
 
-        btnSaveUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
-        btnSaveUser.setToolTipText("Guardar");
-
-        lblUser.setText("Usuario");
-
-        lblPass.setText("Contraseña");
-
-        lstUser.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-add-icon.png"))); // NOI18N
+        btnNewUser.setToolTipText("Guardar");
+        btnNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewUserActionPerformed(evt);
+            }
         });
-        lstUser.setToolTipText("Lista de usuarisos del sistema");
-        jScrollPane1.setViewportView(lstUser);
 
-        txtUser.setToolTipText("Nonbre del Usuario del sistemal");
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        pwdPass.setToolTipText("Contraseña del Usuario del sistema");
+            },
+            new String [] {
+                "Npmbre de Usuario", "Contraseña", "tipo de usuario"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        lblTypeUser.setText("Tipo de Usuario");
-
-        cmbTypeUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tblUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblUserMousePressed(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tblUser);
 
         javax.swing.GroupLayout panUserLayout = new javax.swing.GroupLayout(panUser);
         panUser.setLayout(panUserLayout);
         panUserLayout.setHorizontalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panUserLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panUserLayout.createSequentialGroup()
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUser)
-                            .addComponent(lblPass))
-                        .addGap(18, 18, 18)
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pwdPass)
-                            .addComponent(txtUser)))
-                    .addGroup(panUserLayout.createSequentialGroup()
-                        .addComponent(lblTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
-                .addContainerGap(485, Short.MAX_VALUE)
-                .addComponent(btnSaveUser)
+                .addContainerGap()
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnNewUser))
+                    .addComponent(jScrollPane6))
                 .addContainerGap())
         );
         panUserLayout.setVerticalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panUserLayout.createSequentialGroup()
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUser)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPass)
-                            .addComponent(pwdPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTypeUser)
-                            .addComponent(cmbTypeUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addComponent(btnSaveUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnNewUser)
                 .addContainerGap())
         );
 
@@ -266,7 +245,7 @@ int blo=0;
                         .addComponent(btnDeleteTowns)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSearchTowns)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addComponent(btnSaveCol)
                 .addContainerGap())
         );
@@ -304,7 +283,7 @@ int blo=0;
             panRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panRegistroLayout.setVerticalGroup(
@@ -312,7 +291,7 @@ int blo=0;
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         tpnControl.addTab("Registros", panRegistro);
@@ -358,7 +337,7 @@ int blo=0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDesbloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearActionPerformed
-        System.out.println("llego al boton");
+  
         String pass = "Leo";
         if (blo==0){
         JFrame frame = new JFrame("InputDialog Example");
@@ -372,22 +351,27 @@ int blo=0;
                 if (ax == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Has desbloqueado.");
                     //this.tpnControl.setEnabled(true);
-                    this.pwdPass.setEnabled(true);
                     this.btnSaveCol.setEnabled(true);
-                    this.btnSaveUser.setEnabled(true);
+                    this.btnNewUser.setEnabled(true);
                     this.btnAddTowns.setEnabled(true);
                     this.btnDeleteTowns.setEnabled(true);
                     this.btnSearchTowns.setEnabled(true);
-                    this.cmbTypeUser.setEnabled(true);
-                    this.lstUser.setEnabled(true);
                     this.lstDepartments.setEnabled(true);
                     this.lstTownships.setEnabled(true);
                     this.lstTown.setEnabled(true);
-                    this.lblUser.setEnabled(true);
-                    this.lblTypeUser.setEnabled(true);
-                    this.lblPass.setEnabled(true);
-                    this.txtUser.setEnabled(true);
+                    this.btnNewUser.setEnabled(true);
                     this.tblHistory.setEnabled(true);
+                    dtmUser = (DefaultTableModel)tblUser.getModel();
+                    Object[] columna = new Object[dtmUser.getColumnCount()];
+                    ArrayList<User> usuarios =  usdao.displayUser();
+                    tblUser.removeAll();
+                    int tam = usuarios.size();
+                    for(int i = 0; i < tam; i++){
+                        columna[0] = usuarios.get(i).getUsername();
+                        columna[1] = usuarios.get(i).getPass();
+                        columna[2] = usuarios.get(i).getUserType();
+                        dtmUser.addRow(columna);
+                    }
                     blo = 1;
                     ImageIcon icono2 = new ImageIcon(System.getProperty("user.dir") + "/build/classes/resources/Icons/Unlock-icon.png");
                     this.btnDesbloquear.setIcon(icono2);
@@ -396,21 +380,15 @@ int blo=0;
                 }
             }
         }else if (blo == 1){
-            this.pwdPass.setEnabled(false);
             this.btnSaveCol.setEnabled(false);
-            this.btnSaveUser.setEnabled(false);
+            this.btnNewUser.setEnabled(false);
             this.btnAddTowns.setEnabled(false);
             this.btnDeleteTowns.setEnabled(false);
             this.btnSearchTowns.setEnabled(false);
-            this.cmbTypeUser.setEnabled(false);
-            this.lstUser.setEnabled(false);
             this.lstDepartments.setEnabled(false);
             this.lstTownships.setEnabled(false);
             this.lstTown.setEnabled(false);
-            this.lblUser.setEnabled(false);
-            this.lblTypeUser.setEnabled(false);
-            this.lblPass.setEnabled(false);
-            this.txtUser.setEnabled(false);
+            this.btnNewUser.setEnabled(false);
             this.tblHistory.setEnabled(false);
 
             ImageIcon icono3 = new ImageIcon(System.getProperty("user.dir") + "/build/classes/resources/Icons/Lock-icon.png");
@@ -427,37 +405,45 @@ int blo=0;
         }
     }//GEN-LAST:event_btnCanselarActionPerformed
 
+    private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnNewUserActionPerformed
+
+    private void tblUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMousePressed
+        // TODO add your handling code here:
+       // Integer filaSelec = tblUser.getSelectedRow();
+        //Object[] options = null;
+        
+    }//GEN-LAST:event_tblUserMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddTowns;
     private static final javax.swing.JButton btnCanselar = new javax.swing.JButton();
     public javax.swing.JButton btnDeleteTowns;
     public static javax.swing.JButton btnDesbloquear;
+    public static final javax.swing.JButton btnNewUser = new javax.swing.JButton();
     public javax.swing.JButton btnSaveCol;
-    public static final javax.swing.JButton btnSaveUser = new javax.swing.JButton();
     public javax.swing.JButton btnSearchTowns;
-    public javax.swing.JComboBox<String> cmbTypeUser;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lblDep;
     private javax.swing.JLabel lblMuni;
-    private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblTowns;
-    private javax.swing.JLabel lblTypeUser;
-    private javax.swing.JLabel lblUser;
     public javax.swing.JList<String> lstDepartments;
     public javax.swing.JList<String> lstTown;
     public javax.swing.JList<String> lstTownships;
-    public static javax.swing.JList<String> lstUser;
+    private javax.swing.JMenuItem mnuModif;
     private javax.swing.JPanel panRegistro;
     private javax.swing.JPanel panTowns;
     private javax.swing.JPanel panUser;
-    public javax.swing.JPasswordField pwdPass;
     public javax.swing.JTable tblHistory;
+    public javax.swing.JTable tblUser;
     public javax.swing.JTabbedPane tpnControl;
-    public javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
