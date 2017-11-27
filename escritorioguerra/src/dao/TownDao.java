@@ -9,13 +9,15 @@ import java.util.ArrayList;
 
 public class TownDao extends Conexion {
 
-    public ArrayList<Town> getAllTowns() {
+    public ArrayList<Town> getAllTowns(int idTownship) {
         ArrayList<Town> allTowns = new ArrayList<>();
         
         try {
             super.conectar();
-            String tsQuery = "SELECT * FROM towns";
+            String tsQuery = "SELECT * FROM towns WHERE id_township = ?";
             PreparedStatement psTownships = super.getConexion().prepareStatement(tsQuery);
+            psTownships.setInt(1, idTownship);
+            
             ResultSet rsTownships = psTownships.executeQuery();
             
             while (rsTownships.next()) {

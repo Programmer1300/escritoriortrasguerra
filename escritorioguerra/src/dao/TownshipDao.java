@@ -9,13 +9,15 @@ import java.util.ArrayList;
 
 public class TownshipDao extends Conexion {
 
-    public ArrayList<Township> getAllTownships() {
+    public ArrayList<Township> getAllTownships(int idDepto) {
         ArrayList<Township> allTownships = new ArrayList<>();
         
         try {
             super.conectar();
-            String tsQuery = "SELECT * FROM townships";
+            String tsQuery = "SELECT * FROM townships WHERE id_dep = ?";
             PreparedStatement psTownships = super.getConexion().prepareStatement(tsQuery);
+            psTownships.setInt(1, idDepto);
+            
             ResultSet rsTownships = psTownships.executeQuery();
             
             while (rsTownships.next()) {
@@ -31,16 +33,5 @@ public class TownshipDao extends Conexion {
         
         return allTownships;
     }
-        
-    /*
-    public static void main(String[] args) {
-        TownshipDao dao = new TownshipDao();
-        for (Township t: dao.getAllTownships()) {
-            System.out.println(t.getIdTownship());
-            System.out.println(t.getTownshipName());
-            System.out.println(t.getIdDepto());
-        }
-    }
-*/
     
 }

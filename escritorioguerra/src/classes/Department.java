@@ -28,6 +28,11 @@ public class Department {
     public void setDeptoName(String deptoName) {
         this.deptoName = deptoName;
     }
+
+    @Override
+    public String toString() {
+      return deptoName;
+    }
     
     
 }

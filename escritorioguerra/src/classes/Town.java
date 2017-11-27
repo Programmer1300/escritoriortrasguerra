@@ -29,6 +29,10 @@ public class Town extends Township {
   public void setTownName(String townName) {
     this.townName = townName;
   }
-  
+
+  @Override
+  public String toString() {
+    return townName;
+  }
   
 }

@@ -65,13 +65,17 @@ public class PaymentsDAO extends Conexion {
         return payments;
     }
     
-    public ArrayList<Payment> getDueBills(String query) {
+    public ArrayList<Payment> getDueBills(int town, int month, int year) {
         ArrayList<Payment> payments = new ArrayList<>();
         ResultSet result = null;
         
         try {
             this.conectar();
+            String query = "CALL getDueBillsByTown(?, ?, ?)";
             PreparedStatement st = this.getConexion().prepareCall(query);
+            st.setInt(1, town);
+            st.setInt(2, month);
+            st.setInt(3, year);
             result = st.executeQuery();
             
             while (result.next()) {

@@ -29,6 +29,10 @@ public class Township extends Department {
   public void setTownshipName(String townshipName) {
     this.townshipName = townshipName;
   }
-  
+
+  @Override
+  public String toString() {
+    return townshipName;
+  }
   
 }
