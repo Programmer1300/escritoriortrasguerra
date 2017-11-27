@@ -7,6 +7,7 @@ import classes.Township;
 import dao.PaymentsDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import vistas.IfrmPayments;
 
@@ -139,6 +140,22 @@ public class PaymentsController implements ActionListener {
         }        
         vista.tblDueBills.setModel(tblDueBillsModel);
         break;
+        
+      case "mniCobrar":
+          if (vista.tblDueBills.getSelectedRow() >= 0) {
+            int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
+          } else {
+              JOptionPane.showMessageDialog(vista, "Seleccione un servicio, por favor.", "Sin Selección", JOptionPane.WARNING_MESSAGE);
+          }
+          break;        
+        
+      case "mniRecibo":
+          if (vista.tblDueBills.getSelectedRow() >= 0) {
+            int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
+          } else {
+              JOptionPane.showMessageDialog(vista, "Seleccione un servicio, por favor.", "Sin Selección", JOptionPane.WARNING_MESSAGE);
+          }
+          break;
     
     }
   
@@ -162,6 +179,12 @@ public class PaymentsController implements ActionListener {
     
     vista.btnCheckDueBills.setActionCommand("btnCheckDueBills");
     vista.btnCheckDueBills.addActionListener(this);
+
+    vista.mniRecibo.setActionCommand("mniRecibo");
+    vista.mniRecibo.addActionListener(this);
+
+    vista.mniCobrar.setActionCommand("mniCobrar");
+    vista.mniCobrar.addActionListener(this);
   }
   
 }

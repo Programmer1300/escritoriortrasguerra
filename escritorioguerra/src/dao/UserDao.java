@@ -103,7 +103,7 @@ public class UserDao extends Conexion {
         //int indice = 0;
         try {
             super.conectar();
-            String displayUS = "CALL displayUser";
+            String displayUS = "CALL displayUser()";
             PreparedStatement dplUs = super.getConexion().prepareCall(displayUS);
             datos = dplUs.executeQuery();
             
