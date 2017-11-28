@@ -104,46 +104,18 @@ public class PaymentsController implements ActionListener {
         break;
       
       case "btnCheckDueBills": 
-        selectedTown = (Town) vista.cmbColoniaDueBills.getSelectedItem();
-        selectedMonth = vista.cmbMesDueBills.getSelectedIndex() + 1;
-        year = Integer.parseInt(vista.txtAnioDueBills.getText());
-       
-        DefaultTableModel tblDueBillsModel = (DefaultTableModel) vista.tblDueBills.getModel();
-        
-        if (tblDueBillsModel.getRowCount() > 0) {
-          tblDueBillsModel.setRowCount(0);
-        }
-        
-        for (Payment pay: paymentsDao.getDueBills(selectedTown.getIdTown(), selectedMonth, year)) {
-          int csId = pay.getCustomer().getIdCustomer();
-          String customer = pay.getCustomer().getCustomerName() + " " + pay.getCustomer().getCustomerLastName();
-          int nit = pay.getCustomer().getNit();
-          int phone = pay.getCustomer().getPhone();
-          String address = pay.getCustomer().getCustomerService().getStreetAvenue() + " "
-                         + pay.getCustomer().getCustomerService().getHouseNumber() + " "
-                         + pay.getCustomer().getCustomerService().getTownName();
-          double fee = pay.getCustomer().getCustomerService().getFee();
-          String month = pay.getMonth().getMonthName();
-          String payStatus = pay.getPayStatus().getPayStatus();
-          
-          Object[] tblDueBillsRow = new Object[8];
-          tblDueBillsRow[0] = csId;
-          tblDueBillsRow[1] = customer;
-          tblDueBillsRow[2] = nit;
-          tblDueBillsRow[3] = phone;
-          tblDueBillsRow[4] = address;
-          tblDueBillsRow[5] = fee;
-          tblDueBillsRow[6] = month;
-          tblDueBillsRow[7] = payStatus;
-          
-          tblDueBillsModel.addRow(tblDueBillsRow);
-        }        
-        vista.tblDueBills.setModel(tblDueBillsModel);
+        refreshDueBillsTable();
         break;
         
       case "mniCobrar":
           if (vista.tblDueBills.getSelectedRow() >= 0) {
             int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
+            if (paymentsDao.payBill(idPayment)) {
+              JOptionPane.showMessageDialog(vista, "El pago se registró correctamente.", "Pago Realizado", JOptionPane.OK_OPTION);
+            } else {
+              JOptionPane.showMessageDialog(vista, "Por favor, intente nuevamente.", "Error al Registrar Pago", JOptionPane.ERROR_MESSAGE);
+            }
+            refreshDueBillsTable();
           } else {
               JOptionPane.showMessageDialog(vista, "Seleccione un servicio, por favor.", "Sin Selección", JOptionPane.WARNING_MESSAGE);
           }
@@ -152,6 +124,12 @@ public class PaymentsController implements ActionListener {
       case "mniRecibo":
           if (vista.tblDueBills.getSelectedRow() >= 0) {
             int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
+            if (paymentsDao.leaveReceipt(idPayment)) {
+              JOptionPane.showMessageDialog(vista, "Se ha registrado que dejó recibo/factura al cliente", "Dejó Recibo/Factura", JOptionPane.OK_OPTION);
+            } else {
+              JOptionPane.showMessageDialog(vista, "Por favor, intente nuevamente.", "Error al Registrar que Dejó Recibo/Factura", JOptionPane.ERROR_MESSAGE);
+            }
+            refreshDueBillsTable();
           } else {
               JOptionPane.showMessageDialog(vista, "Seleccione un servicio, por favor.", "Sin Selección", JOptionPane.WARNING_MESSAGE);
           }
@@ -185,6 +163,46 @@ public class PaymentsController implements ActionListener {
 
     vista.mniCobrar.setActionCommand("mniCobrar");
     vista.mniCobrar.addActionListener(this);
+  }
+  
+  private void refreshDueBillsTable() {
+    Town selectedTown = (Town) vista.cmbColoniaDueBills.getSelectedItem();
+    int selectedMonth = vista.cmbMesDueBills.getSelectedIndex() + 1;
+    int year = Integer.parseInt(vista.txtAnioDueBills.getText());
+
+    DefaultTableModel tblDueBillsModel = (DefaultTableModel) vista.tblDueBills.getModel();
+
+    if (tblDueBillsModel.getRowCount() > 0) {
+      tblDueBillsModel.setRowCount(0);
+    }
+
+    for (Payment pay: paymentsDao.getDueBills(selectedTown.getIdTown(), selectedMonth, year)) {
+      int csId = pay.getCustomer().getIdCustomer();
+      String customer = pay.getCustomer().getCustomerName() + " " + pay.getCustomer().getCustomerLastName();
+      int nit = pay.getCustomer().getNit();
+      int phone = pay.getCustomer().getPhone();
+      String address = pay.getCustomer().getCustomerService().getStreetAvenue() + " "
+                     + pay.getCustomer().getCustomerService().getHouseNumber() + " "
+                     + pay.getCustomer().getCustomerService().getTownName();
+      double fee = pay.getCustomer().getCustomerService().getFee();
+      String month = pay.getMonth().getMonthName();
+      String payStatus = pay.getPayStatus().getPayStatus();
+      int payId = pay.getIdPayment();
+
+      Object[] tblDueBillsRow = new Object[9];
+      tblDueBillsRow[0] = payId;
+      tblDueBillsRow[1] = csId;
+      tblDueBillsRow[2] = customer;
+      tblDueBillsRow[3] = nit;
+      tblDueBillsRow[4] = phone;
+      tblDueBillsRow[5] = address;
+      tblDueBillsRow[6] = fee;
+      tblDueBillsRow[7] = month;
+      tblDueBillsRow[8] = payStatus;
+
+      tblDueBillsModel.addRow(tblDueBillsRow);
+    }        
+    vista.tblDueBills.setModel(tblDueBillsModel);
   }
   
 }
