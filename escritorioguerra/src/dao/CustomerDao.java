@@ -84,15 +84,15 @@ public class CustomerDao extends Conexion {
     
     
     
-   public Customer searchCustomer(int idCustomer) {
+   public Customer searchCustomer(int idService) {
        Customer cuto = new Customer();
        ArrayList<Service> sc = new ArrayList<>();
        ResultSet result = null;
        
        try{
         this.conectar();
-        PreparedStatement st = this.getConexion().prepareStatement("select * from generalView where id_customer= ?");
-        st.setInt(1, idCustomer);
+        PreparedStatement st = this.getConexion().prepareStatement("SELECT * FROM generalView WHERE id_customer=?");
+        st.setInt(1, idService);
         result = st.executeQuery();
 
         while(result.next()) {  
@@ -169,5 +169,49 @@ public class CustomerDao extends Conexion {
        }
        return customers;
    }
+   
+   public Customer searchService(int idService) {
+       Customer cuto = null;
+       
+       try {
+        this.conectar();
+        PreparedStatement st = this.getConexion().prepareStatement("SELECT * FROM generalView WHERE id_service=?");
+        st.setInt(1, idService);
+        
+        ResultSet result;
+        result = st.executeQuery();
+
+        if (result.next()) {
+            cuto = new Customer();
+            cuto.setIdCustomer(result.getInt("id_customer"));
+            cuto.setCustomerName(result.getString("customer_name"));
+            cuto.setCustomerLastName(result.getString("customer_last_name"));
+            cuto.setNit(result.getInt("nit"));
+            cuto.setPhone(result.getInt("phone"));
+      
+            Service s = new Service();
+            s.setIdService(result.getInt("id_service"));
+            s.setFee(result.getInt("fee"));
+            s.setIdCustomerType(result.getInt("id_customer_ty"));
+            s.setIdVoucher(result.getInt("id_voucher"));
+            s.setIdStatus(result.getInt("id_status"));
+            s.setStreetAvenue(result.getString("street_avenue"));
+            s.setHouseNumber(result.getString("house_number"));
+            s.setZone(result.getInt("zone"));
+            s.setIdTown(result.getInt("id_town"));
+            s.setObservations(result.getString("observations"));
+            s.setTownName(result.getString("town_name"));
+            
+            cuto.setCustomerService(s);
+            
+        }
+        
+       }catch(SQLException e){
+          System.out.println("ERROR:"+e);
+       }finally{
+           this.cerrar();
+       }
+    return cuto;
+}   
     
 }

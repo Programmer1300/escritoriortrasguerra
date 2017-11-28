@@ -53,6 +53,7 @@ public class PaymentsDAO extends Conexion {
                 pay.setPaymentDate(result.getString("payment_date"));
                 pay.setCustomer(cs);
                 pay.setMonth(mh);
+                pay.setYear(result.getInt("payYear"));
                 
                 payments.add(pay);
             }
@@ -159,5 +160,28 @@ public class PaymentsDAO extends Conexion {
         }
         return false;
     }
+    
+    public boolean payForwardedBill(int idService, int month, int year, double amount) {
+        try {
+            this.conectar();
+            String query = "CALL payForwardedBill(?, ?, ?, ?)";
+            
+            PreparedStatement st = this.getConexion().prepareCall(query);
+            st.setInt(1, idService);
+            st.setInt(2, month);
+            st.setInt(3, year);
+            st.setDouble(4, amount);
+            
+            if (st.executeUpdate() > 0) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("ERROR"+e);
+        }finally{
+            this.cerrar();
+        }
+        return false;
+    }    
     
 }
