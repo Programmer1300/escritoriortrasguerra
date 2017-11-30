@@ -177,9 +177,12 @@ public class PaymentsController implements ActionListener {
           double amountPayment = Double.parseDouble(vista.txtPayAmount.getText());
           
           if ( paymentsDao.payForwardedBill(idServicePayment, monthPayment, yearPayment, amountPayment) ) {
-            JOptionPane.showMessageDialog(vista, "El pago se ha registrado correctamente.", "Pago Adelantado Registrado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "El pago se ha registrado correctamente.", 
+                    "Pago Adelantado Registrado", JOptionPane.INFORMATION_MESSAGE);
           } else {
-            JOptionPane.showMessageDialog(vista, "Ha ocurrido un error al registrar el pago. Intente nuevamente.", "Error al Registrar Pago", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista,
+                "El pago pudo haberse ya registrado para el mes y año ingresado.\nSi no es así, intente nuevamente por favor.", 
+                "Error al Registrar Pago", JOptionPane.ERROR_MESSAGE);
           }
 
           break;
