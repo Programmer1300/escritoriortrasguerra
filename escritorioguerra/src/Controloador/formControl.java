@@ -97,6 +97,7 @@ public class formControl implements ActionListener {
         if (event.equals("Salir")){
             System.exit(0);
         }
+        
                 
     }
 }
