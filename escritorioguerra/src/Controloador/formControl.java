@@ -47,6 +47,9 @@ public class formControl implements ActionListener {
 
         if (event.equals("Busqueda por codigo")) {
             IfrmFindCustomers a = new IfrmFindCustomers();
+            
+            FindCustomers controlador = new FindCustomers(a);
+            
             dad.desktopPane.add(a);
             a.setVisible(true);
             a.panCodeName.setVisible(true);

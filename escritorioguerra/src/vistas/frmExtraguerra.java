@@ -1,6 +1,9 @@
 
 package vistas;
 
+import Controloador.Controller2;
+import Controloador.FindCustomers;
+
 public class frmExtraguerra extends javax.swing.JFrame {
 
     public frmExtraguerra() {
@@ -161,6 +164,9 @@ public class frmExtraguerra extends javax.swing.JFrame {
 
     private void mniNameCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniNameCodeActionPerformed
         // TODO add your handling code here:
+        
+//        
+        
      
     }//GEN-LAST:event_mniNameCodeActionPerformed
 
