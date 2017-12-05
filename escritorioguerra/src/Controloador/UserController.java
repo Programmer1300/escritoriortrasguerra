@@ -30,9 +30,9 @@ public class UserController implements ActionListener{
     String event1 = ea.getActionCommand();
     
     if (ea.getSource()==user0.btnNewUser){
-        //Frame f = JOptionPane.getFrameForComponent(dad);
-        //dlgNewUser dialog = new dlgNewUser(f, true);
-        //dialog.show();
+        Frame f = JOptionPane.getFrameForComponent(dad);
+        dlgNewUser dialog = new dlgNewUser(f, true);
+        dialog.show();
     }
     }
      

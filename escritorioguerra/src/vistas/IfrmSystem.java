@@ -442,9 +442,9 @@ DefaultTableModel dtmUser;
 
     private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
         //TODO add your handling code here:
-        Frame f = JOptionPane.getFrameForComponent(this);
-        dlgNewUser dialog = new dlgNewUser(f, true);
-        dialog.show();
+        //Frame f = JOptionPane.getFrameForComponent(this);
+        //dlgNewUser dialog = new dlgNewUser(f, true);
+        //dialog.show();
     }//GEN-LAST:event_btnNewUserActionPerformed
 
     private void tblUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMousePressed

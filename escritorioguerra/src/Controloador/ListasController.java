@@ -3,6 +3,7 @@ package Controloador;
 import classes.Department;
 import classes.Town;
 import classes.Township;
+import classes.UserType;
 import dao.DeptoDao;
 import dao.TownDao;
 import dao.TownshipDao;
@@ -40,4 +41,7 @@ public class ListasController {
       return defaultCmb;
   }
   
+  public DefaultComboBoxModel<UserType> getCustomerType(){
+            
+  }
 }
