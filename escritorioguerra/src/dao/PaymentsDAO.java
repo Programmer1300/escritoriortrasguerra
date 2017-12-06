@@ -183,5 +183,25 @@ public class PaymentsDAO extends Conexion {
         }
         return false;
     }    
+
+    public void setPaymentStatus(int idService, double amount, int idStatus) {
+        try {
+            this.conectar();
+            String query = "CALL setPaymentStatus(?, ?, ?)";
+            
+            PreparedStatement st = this.getConexion().prepareCall(query);
+            st.setInt(1, idService);
+            st.setDouble(2, amount);
+            st.setInt(3, idStatus);
+            
+            st.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("ERROR"+e);
+        }finally{
+            this.cerrar();
+        }
+
+    }    
     
 }
