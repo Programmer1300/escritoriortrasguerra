@@ -34,7 +34,6 @@ public class FindCustomers implements KeyListener {
 
             CustomerDao customerdao = new CustomerDao();
             Customer customer = new Customer();
-            Service service = new Service();
 
             String texto;
             String query;
@@ -61,12 +60,11 @@ public class FindCustomers implements KeyListener {
                 int customerID = cuto.getIdCustomer();
                 String name = cuto.getCustomerName();
 
-                customer.setCustomerService(service);
-
-                double fee = customer.getCustomerService().getFee();
-                String address = customer.getCustomerService().getStreetAvenue()
-                        + "" + customer.getCustomerService().getHouseNumber()
-                        + "" + customer.getCustomerService().getZone();
+                cuto.getCustomerService();
+                double fee = cuto.getCustomerService().getFee();
+                String address = cuto.getCustomerService().getStreetAvenue()
+                        + " " + cuto.getCustomerService().getHouseNumber()
+                        + " " + "Zona" + " " + cuto.getCustomerService().getZone();
 
                 Object[] tabladeclientes = new Object[4];
                 tabladeclientes[0] = customerID;
