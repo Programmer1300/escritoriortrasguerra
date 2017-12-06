@@ -2,6 +2,7 @@ package vistas;
 
 import classes.User;
 import dao.UserDao;
+import java.awt.Frame;
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -31,7 +32,6 @@ DefaultTableModel dtmUser;
     public IfrmSystem() {
         initComponents();
         //this.tpnControl.setEnabled(false);
-        this.tblUser.setEnabled(false);
         this.btnSaveCol.setEnabled(false);
         this.btnNewUser.setEnabled(false);
         this.btnAddTowns.setEnabled(false);
@@ -41,6 +41,7 @@ DefaultTableModel dtmUser;
         this.lstTownships.setEnabled(false);
         this.lstTown.setEnabled(false);
         this.tblHistory.setEnabled(false);
+        this.tblUser.setEnabled(false);
 
         
         
@@ -55,11 +56,15 @@ DefaultTableModel dtmUser;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        mnuModif = new javax.swing.JMenuItem();
+        mnuOpition = new javax.swing.JPopupMenu();
+        mniModi = new javax.swing.JMenuItem();
+        mnuState = new javax.swing.JMenu();
+        mniDel = new javax.swing.JMenuItem();
+        mniActi = new javax.swing.JMenuItem();
         btnDesbloquear = new javax.swing.JButton();
         tpnControl = new javax.swing.JTabbedPane();
         panUser = new javax.swing.JPanel();
+        btnNewUser = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
         panTowns = new javax.swing.JPanel();
@@ -80,8 +85,38 @@ DefaultTableModel dtmUser;
         jScrollPane3 = new javax.swing.JScrollPane();
         tblHistory = new javax.swing.JTable();
 
-        mnuModif.setText("jMenuItem1");
-        jPopupMenu1.add(mnuModif);
+        mnuOpition.setToolTipText("");
+
+        mniModi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-info-icon.png"))); // NOI18N
+        mniModi.setText("Modificar");
+        mniModi.setToolTipText("Modifica la información del usuario");
+        mniModi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniModiActionPerformed(evt);
+            }
+        });
+        mnuOpition.add(mniModi);
+
+        mnuState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/user-business-info-icon.png"))); // NOI18N
+        mnuState.setText("estados del Usuario");
+        mnuState.setToolTipText("opciones de estado");
+
+        mniDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/status_offline.png"))); // NOI18N
+        mniDel.setText("Inactivo");
+        mniDel.setToolTipText("canbia el estado del servisio a Inactivo");
+        mniDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniDelActionPerformed(evt);
+            }
+        });
+        mnuState.add(mniDel);
+
+        mniActi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/status_online.png"))); // NOI18N
+        mniActi.setText("Activar");
+        mniActi.setToolTipText("Canbia el estatus del servisio a activo");
+        mnuState.add(mniActi);
+
+        mnuOpition.add(mnuState);
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setIconifiable(true);
@@ -107,17 +142,18 @@ DefaultTableModel dtmUser;
 
             },
             new String [] {
-                "Npmbre de Usuario", "Contraseña", "tipo de usuario"
+                "Npmbre de Usuario", "tipo de usuario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
+        tblUser.setComponentPopupMenu(mnuOpition);
         tblUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tblUserMousePressed(evt);
@@ -359,8 +395,8 @@ DefaultTableModel dtmUser;
                     this.lstDepartments.setEnabled(true);
                     this.lstTownships.setEnabled(true);
                     this.lstTown.setEnabled(true);
-                    this.btnNewUser.setEnabled(true);
                     this.tblHistory.setEnabled(true);
+                    this.tblUser.setEnabled(true);
                     dtmUser = (DefaultTableModel)tblUser.getModel();
                     Object[] columna = new Object[dtmUser.getColumnCount()];
                     ArrayList<User> usuarios =  usdao.displayUser();
@@ -368,8 +404,7 @@ DefaultTableModel dtmUser;
                     int tam = usuarios.size();
                     for(int i = 0; i < tam; i++){
                         columna[0] = usuarios.get(i).getUsername();
-                        columna[1] = usuarios.get(i).getPass();
-                        columna[2] = usuarios.get(i).getUserType();
+                        columna[1] = usuarios.get(i).getUserType();
                         dtmUser.addRow(columna);
                     }
                     blo = 1;
@@ -388,8 +423,8 @@ DefaultTableModel dtmUser;
             this.lstDepartments.setEnabled(false);
             this.lstTownships.setEnabled(false);
             this.lstTown.setEnabled(false);
-            this.btnNewUser.setEnabled(false);
             this.tblHistory.setEnabled(false);
+            this.tblUser.setEnabled(false);
 
             ImageIcon icono3 = new ImageIcon(System.getProperty("user.dir") + "/build/classes/resources/Icons/Lock-icon.png");
             this.btnDesbloquear.setIcon(icono3);
@@ -406,8 +441,10 @@ DefaultTableModel dtmUser;
     }//GEN-LAST:event_btnCanselarActionPerformed
 
     private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
-        // TODO add your handling code here:
-        
+        //TODO add your handling code here:
+        //Frame f = JOptionPane.getFrameForComponent(this);
+        //dlgNewUser dialog = new dlgNewUser(f, true);
+        //dialog.show();
     }//GEN-LAST:event_btnNewUserActionPerformed
 
     private void tblUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMousePressed
@@ -417,16 +454,26 @@ DefaultTableModel dtmUser;
         
     }//GEN-LAST:event_tblUserMousePressed
 
+    private void mniDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mniDelActionPerformed
+
+    private void mniModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniModiActionPerformed
+        // TODO add your handling code here:
+        Frame f = JOptionPane.getFrameForComponent(this);
+        dlgModifyUser dialog = new dlgModifyUser(f, true);
+        dialog.show();
+    }//GEN-LAST:event_mniModiActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddTowns;
     private static final javax.swing.JButton btnCanselar = new javax.swing.JButton();
     public javax.swing.JButton btnDeleteTowns;
-    public static javax.swing.JButton btnDesbloquear;
-    public static final javax.swing.JButton btnNewUser = new javax.swing.JButton();
+    public javax.swing.JButton btnDesbloquear;
+    public javax.swing.JButton btnNewUser;
     public javax.swing.JButton btnSaveCol;
     public javax.swing.JButton btnSearchTowns;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -438,10 +485,14 @@ DefaultTableModel dtmUser;
     public javax.swing.JList<String> lstDepartments;
     public javax.swing.JList<String> lstTown;
     public javax.swing.JList<String> lstTownships;
-    private javax.swing.JMenuItem mnuModif;
+    public javax.swing.JMenuItem mniActi;
+    private javax.swing.JMenuItem mniDel;
+    private javax.swing.JMenuItem mniModi;
+    private javax.swing.JPopupMenu mnuOpition;
+    public javax.swing.JMenu mnuState;
     private javax.swing.JPanel panRegistro;
     private javax.swing.JPanel panTowns;
-    private javax.swing.JPanel panUser;
+    public javax.swing.JPanel panUser;
     public javax.swing.JTable tblHistory;
     public javax.swing.JTable tblUser;
     public javax.swing.JTabbedPane tpnControl;

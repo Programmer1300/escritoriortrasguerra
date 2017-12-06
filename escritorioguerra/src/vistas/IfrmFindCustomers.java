@@ -5,7 +5,7 @@
  */
 package vistas;
 
-import Controloador.FindCustomers;
+import java.awt.Frame;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,6 +83,11 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
         mniModi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-edit-icon.png"))); // NOI18N
         mniModi.setText("Modificar");
         mniModi.setToolTipText("Modifica la información del clinete y servisios");
+        mniModi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniModiActionPerformed(evt);
+            }
+        });
         mnuOpition.add(mniModi);
 
         mnuState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-gear-icon.png"))); // NOI18N
@@ -156,7 +161,7 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(tblTown);
 
         btnNewCus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/group-add-icon.png"))); // NOI18N
-        btnNewCus.setToolTipText("Nuevo");
+        btnNewCus.setToolTipText("Nuevo cliente");
         btnNewCus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewCusActionPerformed(evt);
@@ -172,7 +177,7 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
         });
 
         btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/book_addresses.png"))); // NOI18N
-        btnReport.setToolTipText("Abregar Servisio");
+        btnReport.setToolTipText("Reportes de clientes");
 
         lblNameCode.setText("Ingrese el  Codigo o el nombre del cliente ");
 
@@ -392,6 +397,9 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
 
     private void btnNewCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCusActionPerformed
         // TODO add your handling code here:
+        Frame f = JOptionPane.getFrameForComponent(this);
+        dlgNewCustomers dialog = new dlgNewCustomers(f, true);
+        dialog.show();
     }//GEN-LAST:event_btnNewCusActionPerformed
 
     private void mniDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDelActionPerformed
@@ -400,11 +408,21 @@ public class IfrmFindCustomers extends javax.swing.JInternalFrame {
 
     private void mniAddServisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAddServisActionPerformed
         // TODO add your handling code here:
+        Frame f = JOptionPane.getFrameForComponent(this);
+        dlgNewService dialog = new dlgNewService(f, true);
+        dialog.show();
     }//GEN-LAST:event_mniAddServisActionPerformed
 
     private void txtNameCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameCodeKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameCodeKeyReleased
+
+    private void mniModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniModiActionPerformed
+        // TODO add your handling code here:
+        Frame f = JOptionPane.getFrameForComponent(this);
+        dlgModifyService dialog = new dlgModifyService(f, true);
+        dialog.show();
+    }//GEN-LAST:event_mniModiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

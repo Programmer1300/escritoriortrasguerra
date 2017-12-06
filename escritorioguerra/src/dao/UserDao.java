@@ -111,13 +111,10 @@ public class UserDao extends Conexion {
                 us = new User();
                 
                 us.setUsername(datos.getString("username"));
-                us.setPass(datos.getString("pass"));
                 us.setUserType(datos.getString("type_user"));
                 
                 usuario.add(us);
-                
-               //System.out.println("Nombre de usuario: " + usuario.get(indice).getUsername());
-                //indice++;
+             
             }
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -126,4 +123,18 @@ public class UserDao extends Conexion {
         return usuario;
     }
     
+    public void addUser(String usaername1, String pass1, int ustype1) {
+        try {
+            super.conectar();
+            String addUs = "CALL addNewUser(?,?,?)";
+            PreparedStatement psUs = super.getConexion().prepareCall(addUs);
+            psUs.setString(1, usaername1);
+            psUs.setString(2, pass1);
+            psUs.setInt(3, ustype1);
+            psUs.executeQuery();
+            
+        } catch (Exception ec) {
+            System.err.println(ec);
+        } finally{ super.cerrar(); }
+    }
 }

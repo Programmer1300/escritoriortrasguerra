@@ -4,6 +4,7 @@ public class Payment {
 
     private Customer customer;
     private Month month;
+    private int year;
     private PaymentStatus payStatus;
     private int idPayment;
     private int idService;
@@ -37,6 +38,14 @@ public class Payment {
 
     public void setMonth(Month month) {
         this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getIdPayment() {

@@ -1,9 +1,11 @@
 package Controloador;
 
+import classes.Customer;
 import classes.Department;
 import classes.Payment;
 import classes.Town;
 import classes.Township;
+import dao.CustomerDao;
 import dao.PaymentsDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +18,7 @@ public class PaymentsController implements ActionListener {
   private IfrmPayments vista;
   private ListasController listasController;
   private PaymentsDAO paymentsDao;
+  private CustomerDao customerDao;
   
   public PaymentsController(IfrmPayments vista) {
     this.vista = vista;
@@ -71,6 +74,7 @@ public class PaymentsController implements ActionListener {
                          + pay.getCustomer().getCustomerService().getTownName();
           double amount = pay.getAmount();
           String month = pay.getMonth().getMonthName();
+          int historyYear = pay.getYear();
           String payDate = pay.getPaymentDate();
           
           Object[] tblPaymentsHistoryRow = new Object[8];
@@ -80,7 +84,7 @@ public class PaymentsController implements ActionListener {
           tblPaymentsHistoryRow[3] = phone;
           tblPaymentsHistoryRow[4] = address;
           tblPaymentsHistoryRow[5] = amount;
-          tblPaymentsHistoryRow[6] = month;
+          tblPaymentsHistoryRow[6] = month + " " + historyYear;
           tblPaymentsHistoryRow[7] = payDate;
           
           tblPaymentsHistoryModel.addRow(tblPaymentsHistoryRow);
@@ -111,7 +115,7 @@ public class PaymentsController implements ActionListener {
           if (vista.tblDueBills.getSelectedRow() >= 0) {
             int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
             if (paymentsDao.payBill(idPayment)) {
-              JOptionPane.showMessageDialog(vista, "El pago se registró correctamente.", "Pago Realizado", JOptionPane.OK_OPTION);
+              JOptionPane.showMessageDialog(vista, "El pago se registró correctamente.", "Pago Realizado", JOptionPane.INFORMATION_MESSAGE);
             } else {
               JOptionPane.showMessageDialog(vista, "Por favor, intente nuevamente.", "Error al Registrar Pago", JOptionPane.ERROR_MESSAGE);
             }
@@ -125,7 +129,7 @@ public class PaymentsController implements ActionListener {
           if (vista.tblDueBills.getSelectedRow() >= 0) {
             int idPayment = (int) vista.tblDueBills.getModel().getValueAt(vista.tblDueBills.getSelectedRow(), 0);
             if (paymentsDao.leaveReceipt(idPayment)) {
-              JOptionPane.showMessageDialog(vista, "Se ha registrado que dejó recibo/factura al cliente", "Dejó Recibo/Factura", JOptionPane.OK_OPTION);
+              JOptionPane.showMessageDialog(vista, "Se ha registrado que dejó recibo/factura al cliente", "Dejó Recibo/Factura", JOptionPane.INFORMATION_MESSAGE);
             } else {
               JOptionPane.showMessageDialog(vista, "Por favor, intente nuevamente.", "Error al Registrar que Dejó Recibo/Factura", JOptionPane.ERROR_MESSAGE);
             }
@@ -133,6 +137,54 @@ public class PaymentsController implements ActionListener {
           } else {
               JOptionPane.showMessageDialog(vista, "Seleccione un servicio, por favor.", "Sin Selección", JOptionPane.WARNING_MESSAGE);
           }
+          break;
+      
+      case "txtPayIdService":
+          int idService = Integer.parseInt(vista.txtPayIdService.getText());
+          customerDao = new CustomerDao();
+          Customer csService = customerDao.searchService(idService);
+          
+          clearPaymentFormFields();
+          
+          if (csService != null) {
+            String zone = "";
+            if (csService.getCustomerService().getZone() > 0) {
+                zone = "zona " + String.valueOf(csService.getCustomerService().getZone());
+            }
+
+            vista.txtPayCustomer.setText(csService.getCustomerName() + " " + csService.getCustomerLastName());
+            vista.txtPayNit.setText(String.valueOf(csService.getNit()));
+            vista.txtPayPhone.setText(String.valueOf(csService.getPhone()));
+
+            vista.txtPayAddress.setText(
+              csService.getCustomerService().getStreetAvenue() + " " +
+              csService.getCustomerService().getHouseNumber() + " " +
+              csService.getCustomerService().getTownName() + " " +
+              zone
+            );
+
+            vista.txtPayAmount.setText(String.valueOf(csService.getCustomerService().getFee()));    
+          } else {
+              JOptionPane.showMessageDialog(vista, "Verifique que el ID del servicio sea el correcto.", "Servicio No Encontrado", JOptionPane.WARNING_MESSAGE);
+          }
+          
+          break;
+          
+        case "btnMakePayment":
+          int idServicePayment = Integer.parseInt(vista.txtPayIdService.getText());
+          int monthPayment = vista.cmbPayMonth.getSelectedIndex() + 1;
+          int yearPayment = Integer.parseInt(vista.txtPayYear.getText());
+          double amountPayment = Double.parseDouble(vista.txtPayAmount.getText());
+          
+          if ( paymentsDao.payForwardedBill(idServicePayment, monthPayment, yearPayment, amountPayment) ) {
+            JOptionPane.showMessageDialog(vista, "El pago se ha registrado correctamente.", 
+                    "Pago Adelantado Registrado", JOptionPane.INFORMATION_MESSAGE);
+          } else {
+            JOptionPane.showMessageDialog(vista,
+                "El pago pudo haberse ya registrado para el mes y año ingresado.\nSi no es así, intente nuevamente por favor.", 
+                "Error al Registrar Pago", JOptionPane.ERROR_MESSAGE);
+          }
+
           break;
     
     }
@@ -163,6 +215,12 @@ public class PaymentsController implements ActionListener {
 
     vista.mniCobrar.setActionCommand("mniCobrar");
     vista.mniCobrar.addActionListener(this);
+
+    vista.txtPayIdService.setActionCommand("txtPayIdService");
+    vista.txtPayIdService.addActionListener(this);
+
+    vista.btnMakePayment.setActionCommand("btnMakePayment");
+    vista.btnMakePayment.addActionListener(this);
   }
   
   private void refreshDueBillsTable() {
@@ -203,6 +261,16 @@ public class PaymentsController implements ActionListener {
       tblDueBillsModel.addRow(tblDueBillsRow);
     }        
     vista.tblDueBills.setModel(tblDueBillsModel);
+  }
+  
+  private void clearPaymentFormFields() {
+    vista.txtPayCustomer.setText("");
+    vista.txtPayNit.setText("");
+    vista.txtPayPhone.setText("");
+    vista.txtPayAddress.setText("");
+    vista.txtPayAmount.setText("");
+    vista.txtPayYear.setText("");
+    vista.cmbPayMonth.getModel().setSelectedItem("Enero");
   }
   
 }
