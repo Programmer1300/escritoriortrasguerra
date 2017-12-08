@@ -79,23 +79,23 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="488" splitType="Stretch">
+		<band height="254" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="86" y="100" width="151" height="18" uuid="bf6bed2e-7fb7-4daa-8068-e48718cc5678"/>
+				<reportElement style="Detail" positionType="Float" x="86" y="99" width="151" height="18" uuid="bf6bed2e-7fb7-4daa-8068-e48718cc5678"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_customer_name}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="237" y="100" width="178" height="18" uuid="6a860dcc-0217-4383-a171-553e9dfe77a8"/>
+				<reportElement style="Detail" positionType="Float" x="237" y="97" width="178" height="18" uuid="6a860dcc-0217-4383-a171-553e9dfe77a8"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_customer_last_name}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="466" y="102" width="87" height="18" uuid="f66b45de-c251-4d7d-b6e7-fa6fb34c139a"/>
+				<reportElement style="Detail" positionType="Float" x="466" y="93" width="87" height="18" uuid="f66b45de-c251-4d7d-b6e7-fa6fb34c139a"/>
 				<textElement>
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
@@ -130,21 +130,21 @@ WHERE
 				<textFieldExpression><![CDATA[$F{payments_info_house_number}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="509" y="128" width="46" height="18" uuid="a222ed8d-2339-47cd-a08e-ad4564d49516"/>
+				<reportElement style="Detail" positionType="Float" x="509" y="121" width="46" height="18" uuid="a222ed8d-2339-47cd-a08e-ad4564d49516"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_zone}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="8" y="256" width="338" height="18" uuid="4f4b760a-7970-4f90-b8a5-9bf2304d30e6"/>
+				<reportElement style="Detail" positionType="Float" x="142" y="144" width="338" height="18" uuid="4f4b760a-7970-4f90-b8a5-9bf2304d30e6"/>
 				<textElement>
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_observatCions}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="243" y="123" width="223" height="18" uuid="57f740a2-8a55-41cd-a87b-d5b13e49056d"/>
+				<reportElement style="Detail" positionType="Float" x="243" y="120" width="223" height="18" uuid="57f740a2-8a55-41cd-a87b-d5b13e49056d"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
@@ -186,14 +186,7 @@ WHERE
 				<text><![CDATA[SERVICIO PARTICULAR DE EXTRACCION DE DESECHOS SOLIDOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="39" y="147" width="100" height="20" uuid="069f81f4-dce4-499a-a0b9-2a79febd89fd"/>
-				<textElement>
-					<font fontName="SansSerif" size="8"/>
-				</textElement>
-				<text><![CDATA[OBSERVACIONES:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="38" y="129" width="52" height="20" uuid="630cf4dd-bf75-44b7-b129-bb0b21e2ddaa"/>
+				<reportElement x="37" y="129" width="52" height="20" uuid="630cf4dd-bf75-44b7-b129-bb0b21e2ddaa"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -241,6 +234,41 @@ WHERE
 				</textElement>
 				<text><![CDATA[ZONA]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="38" y="153" width="100" height="20" uuid="aa4180c9-34ad-4df6-9abc-3ce0530842c9"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[OBSERVACIONES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="158" width="559" height="20" uuid="f9ccfd1e-4430-487f-8a5b-2a4993867783"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[_________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="189" width="100" height="20" uuid="8d63f97f-8c84-4843-8f4e-a68c3751ed79"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[--NO INCLUYE RIPIO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="209" width="198" height="20" uuid="31d6670e-86d6-47bb-80dc-9b00c6561cdb"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[-- NO EFECTUE NINGUN PAGO SIN ESTE RECIBO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="169" width="526" height="20" uuid="60f4a1b9-c40e-4b9e-b1f5-20b5f65bcddb"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[ESTIMADO CLIENTE:   AYUDA A TU RECOLECTOR DE LIMPIEZA, CANCELANDO LOS PRIMEROS CINCO DIAS DEL MES.]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
@@ -254,7 +282,7 @@ WHERE
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="13" splitType="Stretch"/>
+		<band height="6" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band splitType="Stretch"/>
