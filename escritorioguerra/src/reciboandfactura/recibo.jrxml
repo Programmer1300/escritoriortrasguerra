@@ -80,297 +80,87 @@ WHERE
 	</columnHeader>
 	<detail>
 		<band height="488" splitType="Stretch">
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="56" width="132" height="20" forecolor="#000000" uuid="057b61a5-522e-4503-960b-b00b88e30dbc"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_id_customer]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="56" width="338" height="18" uuid="beac0329-8fbc-4b3a-a392-571db1e45d9b"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_id_customer}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="76" width="132" height="20" forecolor="#000000" uuid="067f7c45-e139-48f6-9947-bb674920bee4"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_customer_name]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="76" width="338" height="18" uuid="bf6bed2e-7fb7-4daa-8068-e48718cc5678"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="86" y="100" width="151" height="18" uuid="bf6bed2e-7fb7-4daa-8068-e48718cc5678"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_customer_name}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="96" width="132" height="20" forecolor="#000000" uuid="ba911b57-3eec-4a95-a87a-bed72cf60c89"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_customer_last_name]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="96" width="338" height="18" uuid="6a860dcc-0217-4383-a171-553e9dfe77a8"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="237" y="100" width="178" height="18" uuid="6a860dcc-0217-4383-a171-553e9dfe77a8"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_customer_last_name}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="116" width="132" height="20" forecolor="#000000" uuid="66c510f7-0e54-4ac6-958d-7e1ffd2132d5"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_phone]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="116" width="338" height="18" uuid="f66b45de-c251-4d7d-b6e7-fa6fb34c139a"/>
+				<reportElement style="Detail" positionType="Float" x="466" y="102" width="87" height="18" uuid="f66b45de-c251-4d7d-b6e7-fa6fb34c139a"/>
 				<textElement>
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_phone}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="136" width="132" height="20" forecolor="#000000" uuid="80d8798c-759e-42a0-ada3-30fcf4eacac4"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_nit]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="136" width="338" height="18" uuid="81a4c1dc-ac3e-4585-a725-56a87e9a73fd"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_nit}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="156" width="132" height="20" forecolor="#000000" uuid="d4cc0231-b876-4dd6-9534-a4c82bde8ac2"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_id_service]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="156" width="338" height="18" uuid="21225cd8-46c5-476f-a822-950835289553"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="86" y="78" width="56" height="18" uuid="21225cd8-46c5-476f-a822-950835289553"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_id_service}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="176" width="132" height="20" forecolor="#000000" uuid="1ce0d5d5-ea35-493d-849f-6614b7c33abd"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_fee]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="176" width="338" height="18" uuid="5962be47-7807-4b0f-8bc1-fa45fda1f1b2"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				<reportElement style="Detail" positionType="Float" x="271" y="72" width="81" height="18" uuid="5962be47-7807-4b0f-8bc1-fa45fda1f1b2"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_fee}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="196" width="132" height="20" forecolor="#000000" uuid="19083f81-98de-4a29-8d41-b80c6751d151"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_street_avenue]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="196" width="338" height="18" uuid="1a97813d-79c6-4fb9-9a38-9196a12f3c1f"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="91" y="126" width="61" height="18" uuid="1a97813d-79c6-4fb9-9a38-9196a12f3c1f"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_street_avenue}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="216" width="132" height="20" forecolor="#000000" uuid="b69ad0da-fcde-45f7-9e19-6a2d2d340678"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_house_number]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="216" width="338" height="18" uuid="c1650f89-c896-4e08-9a6a-15e8337a938a"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="152" y="123" width="90" height="18" uuid="c1650f89-c896-4e08-9a6a-15e8337a938a"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_house_number}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="236" width="132" height="20" forecolor="#000000" uuid="f7f2ee5a-f2e2-4a1f-bc3e-faa69389b94d"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_zone]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="236" width="338" height="18" uuid="a222ed8d-2339-47cd-a08e-ad4564d49516"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="509" y="128" width="46" height="18" uuid="a222ed8d-2339-47cd-a08e-ad4564d49516"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_zone}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="256" width="132" height="20" forecolor="#000000" uuid="a33140dc-f9f2-4ef8-aba0-48bca44392ff"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_observatCions]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="256" width="338" height="18" uuid="4f4b760a-7970-4f90-b8a5-9bf2304d30e6"/>
+				<reportElement style="Detail" positionType="Float" x="8" y="256" width="338" height="18" uuid="4f4b760a-7970-4f90-b8a5-9bf2304d30e6"/>
 				<textElement>
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_observatCions}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="276" width="132" height="20" forecolor="#000000" uuid="d52ec664-ef97-43b9-b40e-9db42c79da6e"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_id_town]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="276" width="338" height="18" uuid="e9652337-3de9-40cd-815d-7f323e1002e6"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_id_town}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="296" width="132" height="20" forecolor="#000000" uuid="291cb68a-e31f-4873-9ae4-36d9fecab673"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_id_status]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="296" width="338" height="18" uuid="f88f79b9-7a81-4cb2-94cc-b7530c4cf877"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_id_status}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="316" width="132" height="20" forecolor="#000000" uuid="3a5bcfc1-2c68-401b-aa9e-8087f4c1605d"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_id_voucher]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="316" width="338" height="18" uuid="f71f76cc-6f6b-45e2-ac42-e26305a914db"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_id_voucher}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="336" width="132" height="20" forecolor="#000000" uuid="66206d06-d6ba-4024-ba00-1575f6bbe7e8"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_town_name]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="336" width="338" height="18" uuid="57f740a2-8a55-41cd-a87b-d5b13e49056d"/>
-				<textElement>
+				<reportElement style="Detail" positionType="Float" x="243" y="123" width="223" height="18" uuid="57f740a2-8a55-41cd-a87b-d5b13e49056d"/>
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payments_info_town_name}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="356" width="132" height="20" forecolor="#000000" uuid="b3f3ddd7-532f-4792-9fd7-3c42df7f399b"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_status]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="356" width="338" height="18" uuid="e5626313-081d-4cbd-9c3e-1374d142df20"/>
+				<reportElement style="Detail" positionType="Float" x="423" y="1" width="132" height="18" uuid="eb31df88-aaa9-4763-83ff-4028dac0ad87"/>
 				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_status}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="376" width="132" height="20" forecolor="#000000" uuid="4976afcb-6b80-404d-a526-ffa99b1a9bb1"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_type_name]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="376" width="338" height="18" uuid="77f01344-26b5-40a4-abe9-1c01c67bcdc8"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_type_name}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="396" width="132" height="20" forecolor="#000000" uuid="9a12b0f7-1b7f-4673-9130-09af1ecb97eb"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[payments_info_voucher_name]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="396" width="338" height="18" uuid="7b6b7d00-9154-49da-9f77-b9c16434749f"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{payments_info_voucher_name}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="416" width="132" height="20" forecolor="#000000" uuid="b1a13990-60e4-40a6-8152-9e8fc7482022"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[months_id_month]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="416" width="338" height="18" uuid="b77c8abe-a524-49c0-9891-a8fc4571fd33"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{months_id_month}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="436" width="132" height="20" forecolor="#000000" uuid="67bd8971-0a34-45de-9878-14fdb3310868"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[months_month_name]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="436" width="338" height="18" uuid="eb31df88-aaa9-4763-83ff-4028dac0ad87"/>
-				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+					<font size="20" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{months_month_name}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="79" y="456" width="132" height="20" forecolor="#000000" uuid="9605d64a-16b6-4949-a5f5-272711613ad3"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[year]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="215" y="456" width="338" height="18" uuid="a0531c8e-6ee5-4d1c-a11c-0ac93a1e8aab"/>
+				<reportElement style="Detail" positionType="Float" x="423" y="21" width="132" height="18" uuid="a0531c8e-6ee5-4d1c-a11c-0ac93a1e8aab"/>
 				<textElement>
-					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+					<font size="20" isBold="true" pdfFontName="Times-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
 			</textField>
@@ -394,6 +184,62 @@ WHERE
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[SERVICIO PARTICULAR DE EXTRACCION DE DESECHOS SOLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="147" width="100" height="20" uuid="069f81f4-dce4-499a-a0b9-2a79febd89fd"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[OBSERVACIONES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="129" width="52" height="20" uuid="630cf4dd-bf75-44b7-b129-bb0b21e2ddaa"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[DIRECCION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="105" width="65" height="18" uuid="e010b281-6123-41db-a4ca-723dde7a8cf6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="103" width="56" height="20" uuid="0e6e6b26-906a-48b5-bd31-70672f080e7d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="82" width="56" height="20" uuid="c51ccca8-f4c6-4191-96ae-bf5d05a31b24"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SERVICIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="82" width="69" height="16" uuid="27f42c16-7f2e-4a07-907d-11a9ce0552e1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[QUETZALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="82" width="44" height="20" uuid="a04e9816-867f-4285-96a6-19d65ae972fe"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CUOTA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="128" width="43" height="20" uuid="1054ab91-5700-4faa-bb36-19fae35c0775"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONA]]></text>
 			</staticText>
 		</band>
 	</detail>
