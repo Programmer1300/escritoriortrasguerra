@@ -85,6 +85,7 @@ public class formControl implements ActionListener {
             IfrmSystem d = new IfrmSystem();
             dad.desktopPane.add(d);
             d.setVisible(true);
+            UserController userr = new UserController(d);
         }
         
         if (event.equals("Pagos")){

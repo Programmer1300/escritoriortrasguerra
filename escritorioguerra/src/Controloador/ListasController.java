@@ -8,6 +8,7 @@ import dao.DeptoDao;
 import dao.TownDao;
 import dao.TownshipDao;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 public class ListasController {
 
@@ -20,6 +21,15 @@ public class ListasController {
       }
       return defaultCmb;
   }
+  public DefaultListModel<Department> getDepartmentsListModel() {
+      DeptoDao deptoDao = new DeptoDao();
+      DefaultListModel<Department> defaultList = new DefaultListModel<>();
+        
+      for (Department depto : deptoDao.getAllDepts()) {
+          defaultList.addElement(depto);
+      }
+      return defaultList;
+  }
   
   public DefaultComboBoxModel<Township> getTownshipsComboBoxModel(int idDepto) {
       TownshipDao townshipDao = new TownshipDao();
@@ -30,6 +40,16 @@ public class ListasController {
       }
       return defaultCmb;
   }
+  
+  public DefaultListModel<Township> getTownshipsListModel(int idDepto) {
+      TownshipDao townshipDao = new TownshipDao();
+      DefaultListModel<Township> defaultList = new DefaultListModel<>();
+        
+      for (Township township : townshipDao.getAllTownships(idDepto)) {
+          defaultList.addElement(township);
+      }
+      return defaultList;
+  }
 
   public DefaultComboBoxModel<Town> getTownsComboBoxModel(int idTownship) {
       TownDao townDao = new TownDao();
@@ -39,6 +59,16 @@ public class ListasController {
           defaultCmb.addElement(town);
       }
       return defaultCmb;
+  }
+  
+  public DefaultListModel<Town> getTownsListModel(int idTownship) {
+      TownDao townDao = new TownDao();
+      DefaultListModel<Town> defaultList = new DefaultListModel<>();
+        
+      for (Town town : townDao.getAllTowns(idTownship)) {
+          defaultList.addElement(town);
+      }
+      return defaultList;
   }
   
   public DefaultComboBoxModel<UserType> getCustomerType(){

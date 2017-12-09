@@ -5,19 +5,22 @@ public class User extends UserType {
   private int idSession;
   private String username;
   private String pass;
+  private int usstatus;
 
   public User() {
   }
 
-  public User(String username, String pass) {
+  public User(String username, String pass, int usstatus) {
     this.username = username;
     this.pass = pass;
+    this.usstatus = usstatus;
   }
 
-  public User(int idSession, String username, String pass, int idUserType) {
+  public User(int idSession, String username, String pass, int idUserType, int usstatus) {
     this.idSession = idSession;
     this.username = username;
     this.pass = pass;
+    this.usstatus = usstatus;
     super.setIdUserType(idUserType);
   }
 
@@ -44,7 +47,12 @@ public class User extends UserType {
   public void setPass(String pass) {
     this.pass = pass;
   }
-  
-  
-  
+   public int getUsstatus() {
+        return usstatus;
+    }
+
+    public void setUsstatus(int usstatus) {
+        this.usstatus = usstatus;
+    }
+
 }

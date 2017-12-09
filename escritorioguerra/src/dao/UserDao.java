@@ -112,6 +112,7 @@ public class UserDao extends Conexion {
                 
                 us.setUsername(datos.getString("username"));
                 us.setUserType(datos.getString("type_user"));
+                us.setUsstatus(datos.getInt("estado"));
                 
                 usuario.add(us);
              

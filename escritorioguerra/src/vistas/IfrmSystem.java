@@ -1,5 +1,8 @@
 package vistas;
 
+import classes.Department;
+import classes.Town;
+import classes.Township;
 import classes.User;
 import dao.UserDao;
 import java.awt.Frame;
@@ -32,19 +35,13 @@ DefaultTableModel dtmUser;
     public IfrmSystem() {
         initComponents();
         //this.tpnControl.setEnabled(false);
-        this.btnSaveCol.setEnabled(false);
         this.btnNewUser.setEnabled(false);
-        this.btnAddTowns.setEnabled(false);
-        this.btnDeleteTowns.setEnabled(false);
-        this.btnSearchTowns.setEnabled(false);
         this.lstDepartments.setEnabled(false);
         this.lstTownships.setEnabled(false);
         this.lstTown.setEnabled(false);
         this.tblHistory.setEnabled(false);
         this.tblUser.setEnabled(false);
 
-        
-        
     }
 
     /**
@@ -70,10 +67,6 @@ DefaultTableModel dtmUser;
         panTowns = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstTown = new javax.swing.JList<>();
-        btnSaveCol = new javax.swing.JButton();
-        btnDeleteTowns = new javax.swing.JButton();
-        btnAddTowns = new javax.swing.JButton();
-        btnSearchTowns = new javax.swing.JButton();
         lblDep = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lstDepartments = new javax.swing.JList<>();
@@ -84,6 +77,7 @@ DefaultTableModel dtmUser;
         panRegistro = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblHistory = new javax.swing.JTable();
+        btnCanselar = new javax.swing.JButton();
 
         mnuOpition.setToolTipText("");
 
@@ -142,11 +136,11 @@ DefaultTableModel dtmUser;
 
             },
             new String [] {
-                "Npmbre de Usuario", "tipo de usuario"
+                "Npmbre de Usuario", "tipo de usuario", "estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -168,58 +162,31 @@ DefaultTableModel dtmUser;
             .addGroup(panUserLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                    .addGroup(panUserLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnNewUser))
-                    .addComponent(jScrollPane6))
+                        .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panUserLayout.setVerticalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnNewUser)
-                .addContainerGap())
+                .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         tpnControl.addTab("Usuarios", panUser);
 
-        lstTown.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(lstTown);
-
-        btnSaveCol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
-        btnSaveCol.setToolTipText("Guardar");
-
-        btnDeleteTowns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/building-delete-icon.png"))); // NOI18N
-        btnDeleteTowns.setToolTipText("eliminar una colonia o condomino");
-
-        btnAddTowns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/building-add-icon.png"))); // NOI18N
-        btnAddTowns.setToolTipText("Agregar una colonia o condomino");
-
-        btnSearchTowns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Search-icon.png"))); // NOI18N
-        btnSearchTowns.setToolTipText("buscar una colonia");
 
         lblDep.setFont(new java.awt.Font("Purisa", 1, 10)); // NOI18N
         lblDep.setText("Departamentos");
 
-        lstDepartments.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane4.setViewportView(lstDepartments);
 
-        lstTownships.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane5.setViewportView(lstTownships);
 
         lblTowns.setFont(new java.awt.Font("Purisa", 1, 10)); // NOI18N
@@ -234,56 +201,40 @@ DefaultTableModel dtmUser;
             panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTownsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panTownsLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panTownsLayout.createSequentialGroup()
                         .addComponent(lblDep)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMuni)
-                        .addGap(73, 73, 73)))
-                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTowns)
+                        .addComponent(lblTowns)
+                        .addGap(115, 115, 115))
                     .addGroup(panTownsLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddTowns)
-                            .addComponent(btnDeleteTowns)
-                            .addComponent(btnSearchTowns))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTownsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSaveCol)
-                .addContainerGap())
+                        .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panTownsLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(lblMuni))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66))))
         );
         panTownsLayout.setVerticalGroup(
             panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTownsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTowns, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblMuni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblDep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDep, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTowns, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panTownsLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAddTowns)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteTowns)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearchTowns)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                .addComponent(btnSaveCol)
-                .addContainerGap())
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMuni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpnControl.addTab("Colonias", panTowns);
@@ -319,7 +270,7 @@ DefaultTableModel dtmUser;
             panRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panRegistroLayout.setVerticalGroup(
@@ -327,7 +278,7 @@ DefaultTableModel dtmUser;
             .addGroup(panRegistroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         tpnControl.addTab("Registros", panRegistro);
@@ -353,17 +304,17 @@ DefaultTableModel dtmUser;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDesbloquear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCanselar)
-                        .addGap(28, 28, 28))))
+                        .addComponent(btnCanselar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tpnControl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnDesbloquear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCanselar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tpnControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDesbloquear)
+                    .addComponent(btnCanselar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -387,11 +338,7 @@ DefaultTableModel dtmUser;
                 if (ax == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Has desbloqueado.");
                     //this.tpnControl.setEnabled(true);
-                    this.btnSaveCol.setEnabled(true);
                     this.btnNewUser.setEnabled(true);
-                    this.btnAddTowns.setEnabled(true);
-                    this.btnDeleteTowns.setEnabled(true);
-                    this.btnSearchTowns.setEnabled(true);
                     this.lstDepartments.setEnabled(true);
                     this.lstTownships.setEnabled(true);
                     this.lstTown.setEnabled(true);
@@ -415,11 +362,8 @@ DefaultTableModel dtmUser;
                 }
             }
         }else if (blo == 1){
-            this.btnSaveCol.setEnabled(false);
+
             this.btnNewUser.setEnabled(false);
-            this.btnAddTowns.setEnabled(false);
-            this.btnDeleteTowns.setEnabled(false);
-            this.btnSearchTowns.setEnabled(false);
             this.lstDepartments.setEnabled(false);
             this.lstTownships.setEnabled(false);
             this.lstTown.setEnabled(false);
@@ -442,9 +386,6 @@ DefaultTableModel dtmUser;
 
     private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
         //TODO add your handling code here:
-        //Frame f = JOptionPane.getFrameForComponent(this);
-        //dlgNewUser dialog = new dlgNewUser(f, true);
-        //dialog.show();
     }//GEN-LAST:event_btnNewUserActionPerformed
 
     private void tblUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMousePressed
@@ -467,13 +408,9 @@ DefaultTableModel dtmUser;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAddTowns;
-    private static final javax.swing.JButton btnCanselar = new javax.swing.JButton();
-    public javax.swing.JButton btnDeleteTowns;
+    private javax.swing.JButton btnCanselar;
     public javax.swing.JButton btnDesbloquear;
     public javax.swing.JButton btnNewUser;
-    public javax.swing.JButton btnSaveCol;
-    public javax.swing.JButton btnSearchTowns;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -482,9 +419,9 @@ DefaultTableModel dtmUser;
     private javax.swing.JLabel lblDep;
     private javax.swing.JLabel lblMuni;
     private javax.swing.JLabel lblTowns;
-    public javax.swing.JList<String> lstDepartments;
-    public javax.swing.JList<String> lstTown;
-    public javax.swing.JList<String> lstTownships;
+    public javax.swing.JList<Department> lstDepartments;
+    public javax.swing.JList<Town> lstTown;
+    public javax.swing.JList<Township> lstTownships;
     public javax.swing.JMenuItem mniActi;
     private javax.swing.JMenuItem mniDel;
     private javax.swing.JMenuItem mniModi;
