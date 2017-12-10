@@ -47,12 +47,18 @@ public class User extends UserType {
   public void setPass(String pass) {
     this.pass = pass;
   }
-   public int getUsstatus() {
-        return usstatus;
-    }
+  
+  public int getUsstatus() {
+    return usstatus;
+  }
 
-    public void setUsstatus(int usstatus) {
-        this.usstatus = usstatus;
-    }
+  public void setUsstatus(int usstatus) {
+    this.usstatus = usstatus;
+  }
 
+  @Override
+  public String toString() {
+    return username;
+  }
+  
 }

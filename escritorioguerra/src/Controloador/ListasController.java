@@ -3,11 +3,13 @@ package Controloador;
 import classes.Department;
 import classes.Town;
 import classes.Township;
+import classes.User;
 import classes.UserType;
 import dao.DeptoDao;
 import dao.TownDao;
 import dao.TownshipDao;
 import dao.UsTypeDao;
+import dao.UserDao;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
@@ -81,4 +83,15 @@ public class ListasController {
       }
       return defaultCmb;
   }
+
+  public DefaultComboBoxModel<User> getUsersComboBoxModel(){
+      UserDao userDao = new UserDao();
+      DefaultComboBoxModel<User> userComboBox = new DefaultComboBoxModel<>(); 
+
+      for (User user : userDao.displayUser()) {
+        userComboBox.addElement(user);
+      }
+      return userComboBox;
+  }
+  
 }

@@ -1,23 +1,19 @@
-
 package vistas;
 
-
-import dao.UserDao;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class Escritorioguerra {
     
-    public static frmLogin ini; 
+    public static frmLogin ini;
+    
     public static void main(String[] args) {
-       IfrmSystem viewUser2 =  new IfrmSystem();
-       UserDao usdao2 = new UserDao();
-
-        
-        
       ini = new frmLogin();
-      ini.setTitle("Extracción de basura    Trasportes Guerra");
-      //nun.setExtendedState(6);
-      //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+      ini.setTitle("Trasportes Guerra | Extracción de desechos sólidos");
+      Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+      int x = (dim.width / 2) - (ini.getSize().width / 2);
+      int y = (dim.height / 2) - (ini.getSize().height / 2);
+      ini.setLocation(x,y);
       ini.setVisible(true);
-      
     }
 }
