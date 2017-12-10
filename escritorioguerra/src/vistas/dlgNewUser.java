@@ -5,9 +5,7 @@
  */
 package vistas;
 
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import classes.UserType;
 
 /**
  *
@@ -34,11 +32,11 @@ public class dlgNewUser extends javax.swing.JDialog {
     private void initComponents() {
 
         lblimg = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
+        txtNewUsername = new javax.swing.JTextField();
         txtNewUserpass = new javax.swing.JPasswordField();
         cmbuserType = new javax.swing.JComboBox<>();
-        btnCloses = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
+        btnNewCloses = new javax.swing.JButton();
+        btnNewUsSave = new javax.swing.JButton();
         lblUsername = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
         lbltype = new javax.swing.JLabel();
@@ -51,25 +49,24 @@ public class dlgNewUser extends javax.swing.JDialog {
 
         lblimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/mas (1).png"))); // NOI18N
 
-        txtUsername.setToolTipText("Ingrese el Nombre de usuario");
+        txtNewUsername.setToolTipText("Ingrese el Nombre de usuario");
 
         txtNewUserpass.setToolTipText("Ingrese la Contraseña ");
 
-        cmbuserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbuserType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbuserTypeActionPerformed(evt);
             }
         });
 
-        btnCloses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
-        btnCloses.addActionListener(new java.awt.event.ActionListener() {
+        btnNewCloses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
+        btnNewCloses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClosesActionPerformed(evt);
+                btnNewClosesActionPerformed(evt);
             }
         });
 
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
+        btnNewUsSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
 
         lblUsername.setText("Ingrese el nombre del usuario nuevo:");
 
@@ -89,9 +86,9 @@ public class dlgNewUser extends javax.swing.JDialog {
                     .addComponent(lbltype)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNewUsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(btnCloses, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNewCloses, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblUsername)
@@ -99,7 +96,7 @@ public class dlgNewUser extends javax.swing.JDialog {
                             .addGap(46, 46, 46)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbuserType, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                .addComponent(txtNewUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                                 .addComponent(txtNewUserpass)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -112,7 +109,7 @@ public class dlgNewUser extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNewUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUsername))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -127,18 +124,17 @@ public class dlgNewUser extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnCloses)
-                                    .addComponent(btnSave))))))
+                                    .addComponent(btnNewCloses)
+                                    .addComponent(btnNewUsSave))))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClosesActionPerformed
+    private void btnNewClosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewClosesActionPerformed
         // TODO add your handling code here:
-     dispose();
-    }//GEN-LAST:event_btnClosesActionPerformed
+    }//GEN-LAST:event_btnNewClosesActionPerformed
 
     private void cmbuserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbuserTypeActionPerformed
         // TODO add your handling code here:
@@ -187,15 +183,15 @@ public class dlgNewUser extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCloses;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox<String> cmbuserType;
+    public javax.swing.JButton btnNewCloses;
+    public javax.swing.JButton btnNewUsSave;
+    public javax.swing.JComboBox<UserType> cmbuserType;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblimg;
     private javax.swing.JLabel lblpass;
     private javax.swing.JLabel lbltype;
-    private javax.swing.JPasswordField txtNewUserpass;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JTextField txtNewUsername;
+    public javax.swing.JPasswordField txtNewUserpass;
     // End of variables declaration//GEN-END:variables
 
     private void setClosed(boolean b) {

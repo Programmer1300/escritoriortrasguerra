@@ -29,5 +29,8 @@ public class UserType {
     this.userType = userType;
   }
   
-  
+   @Override
+    public String toString() {
+      return userType;
+    }
 }

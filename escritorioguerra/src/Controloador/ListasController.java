@@ -7,6 +7,7 @@ import classes.UserType;
 import dao.DeptoDao;
 import dao.TownDao;
 import dao.TownshipDao;
+import dao.UsTypeDao;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
@@ -71,7 +72,13 @@ public class ListasController {
       return defaultList;
   }
   
-  public DefaultComboBoxModel<UserType> getCustomerType(){
-      return null;
+  public DefaultComboBoxModel<UserType> getUserTypeComboBoxModel(){
+      UsTypeDao ustypedao = new UsTypeDao();
+      DefaultComboBoxModel<UserType> defaultCmb = new DefaultComboBoxModel<>();
+      
+      for (UserType ustype : ustypedao.getAllusType()) {
+          defaultCmb.addElement(ustype);
+      }
+      return defaultCmb;
   }
 }

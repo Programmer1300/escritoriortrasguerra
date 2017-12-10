@@ -159,23 +159,25 @@ DefaultTableModel dtmUser;
         panUser.setLayout(panUserLayout);
         panUserLayout.setHorizontalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panUserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panUserLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(panUserLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panUserLayout.setVerticalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addComponent(btnNewUser)
+                .addGap(36, 36, 36))
         );
 
         tpnControl.addTab("Usuarios", panUser);
@@ -203,20 +205,20 @@ DefaultTableModel dtmUser;
                 .addContainerGap()
                 .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panTownsLayout.createSequentialGroup()
-                        .addComponent(lblDep)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTowns)
-                        .addGap(115, 115, 115))
-                    .addGroup(panTownsLayout.createSequentialGroup()
-                        .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panTownsLayout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(lblMuni))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))))
+                        .addGap(38, 38, 38))
+                    .addGroup(panTownsLayout.createSequentialGroup()
+                        .addComponent(lblDep)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTowns)
+                        .addGap(95, 95, 95))))
         );
         panTownsLayout.setVerticalGroup(
             panTownsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +332,6 @@ DefaultTableModel dtmUser;
         JFrame frame = new JFrame("InputDialog Example");
         String code = JOptionPane.showInputDialog(frame, " Ingrese el codigo para la confirmaion de desbloqueo",
                 "confirmacion", JOptionPane.WARNING_MESSAGE);
-        System.out.println(code);
             if (code == null) {
                 JOptionPane.showMessageDialog(null, "Has canselado.");
             } else if (code.equals(pass)) {
@@ -401,9 +402,6 @@ DefaultTableModel dtmUser;
 
     private void mniModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniModiActionPerformed
         // TODO add your handling code here:
-        Frame f = JOptionPane.getFrameForComponent(this);
-        dlgModifyUser dialog = new dlgModifyUser(f, true);
-        dialog.show();
     }//GEN-LAST:event_mniModiActionPerformed
 
 
@@ -424,7 +422,7 @@ DefaultTableModel dtmUser;
     public javax.swing.JList<Township> lstTownships;
     public javax.swing.JMenuItem mniActi;
     private javax.swing.JMenuItem mniDel;
-    private javax.swing.JMenuItem mniModi;
+    public javax.swing.JMenuItem mniModi;
     private javax.swing.JPopupMenu mnuOpition;
     public javax.swing.JMenu mnuState;
     private javax.swing.JPanel panRegistro;
