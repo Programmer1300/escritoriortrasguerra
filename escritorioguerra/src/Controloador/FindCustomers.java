@@ -16,7 +16,7 @@ public class FindCustomers implements KeyListener {
 
     public FindCustomers(IfrmFindCustomers formulario) {
         vista = formulario;
-        this.vista.txtNameCode.addKeyListener(this);
+        this.vista.txtNameCode.addKeyListener(this);                
     }
 
     @Override
@@ -41,15 +41,18 @@ public class FindCustomers implements KeyListener {
 
             if (isNumeric(texto) == true) {
 
-                query = "select * from generalView where id_customer like '%" + texto + "%'";
+                query = "select * from generalView where id_customer like '%"
+                        + texto + "%'";
 
             } else {
 
-                query = "select * from generalView where customer_name like '%" + texto + "%'";
+                query = "select * from generalView where customer_name like '%"
+                        + texto + "%'";
 
             }
 
-            DefaultTableModel muestrameclientes = (DefaultTableModel) vista.tblTown.getModel();
+            DefaultTableModel muestrameclientes = (DefaultTableModel)
+                    vista.tblTown.getModel();
 
             if (muestrameclientes.getRowCount() > 0) {
                 muestrameclientes.setRowCount(0);
@@ -64,7 +67,8 @@ public class FindCustomers implements KeyListener {
                 double fee = cuto.getCustomerService().getFee();
                 String address = cuto.getCustomerService().getStreetAvenue()
                         + " " + cuto.getCustomerService().getHouseNumber()
-                        + " " + "Zona" + " " + cuto.getCustomerService().getZone();
+                        + " " + "Zona" + " " + cuto.getCustomerService(
+                        ).getZone();
 
                 Object[] tabladeclientes = new Object[4];
                 tabladeclientes[0] = customerID;
