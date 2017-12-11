@@ -3,61 +3,60 @@ package classes;
 public class UserHistory {
 
     private int idUserHistory;
-    private String username;
-    private String datetimeIn;
-    private String datetimeOut;
+    private User user;
+    private String date;
+    private String time;
     private String url;
 
     public UserHistory() {
     }
 
-    public UserHistory(int idUserHistory, String username, String datetimeIn, String datetimeOut, String url) {
-        this.idUserHistory = idUserHistory;
-        this.username = username;
-        this.datetimeIn = datetimeIn;
-        this.datetimeOut = datetimeOut;
-        this.url = url;
-    }
+  public UserHistory(int idUserHistory, User user, String date, String time, String url) {
+    this.idUserHistory = idUserHistory;
+    this.user = user;
+    this.date = date;
+    this.time = time;
+    this.url = url;
+  }
 
-    public int getIdUserHistory() {
-        return idUserHistory;
-    }
+  public int getIdUserHistory() {
+    return idUserHistory;
+  }
 
-    public void setIdUserHistory(int idUserHistory) {
-        this.idUserHistory = idUserHistory;
-    }
+  public void setIdUserHistory(int idUserHistory) {
+    this.idUserHistory = idUserHistory;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public User getUser() {
+    return user;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setUser(User user) {
+    this.user = user;
+  }
 
-    public String getDatetimeIn() {
-        return datetimeIn;
-    }
+  public String getDate() {
+    return date;
+  }
 
-    public void setDatetimeIn(String datetimeIn) {
-        this.datetimeIn = datetimeIn;
-    }
+  public void setDate(String date) {
+    this.date = date;
+  }
 
-    public String getDatetimeOut() {
-        return datetimeOut;
-    }
+  public String getTime() {
+    return time;
+  }
 
-    public void setDatetimeOut(String datetimeOut) {
-        this.datetimeOut = datetimeOut;
-    }
+  public void setTime(String time) {
+    this.time = time;
+  }
 
-    public String getUrl() {
-        return url;
-    }
+  public String getUrl() {
+    return url;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
+  public void setUrl(String url) {
+    this.url = url;
+  }
     
 }

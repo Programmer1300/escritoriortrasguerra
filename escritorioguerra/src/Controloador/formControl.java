@@ -14,6 +14,7 @@ import vistas.frmExtraguerra;
 public class formControl implements ActionListener {
 
     frmExtraguerra dad = new frmExtraguerra();
+    ImageIcon icono3 = new ImageIcon(System.getProperty("user.dir") + "/build/classes/resources/Icons/BusList.png");
 
     public void botones(frmExtraguerra dad1) {
         this.dad = dad1;
@@ -77,14 +78,14 @@ public class formControl implements ActionListener {
             c.panList.setVisible(true);
             c.lblListType.setVisible(true);
             c.cmbListType.setVisible(true);
-             Image icon = new ImageIcon(getClass().getResource("/resources/Icons/lista.png")).getImage();
-            c.setFrameIcon((Icon) icon);
+            c.setFrameIcon((Icon) icono3);
         }
         
         if (event.equals("Usuarios")){
             IfrmSystem d = new IfrmSystem();
             dad.desktopPane.add(d);
             d.setVisible(true);
+            UserController userr = new UserController(d);
         }
         
         if (event.equals("Pagos")){
