@@ -88,8 +88,16 @@ public class UserHistoryController implements ActionListener {
         break;
 
       case "btnDeleteUserHistory":
-        // Arreglar bug mysql users history trigger
-        userDao.deleteUsersHistory(dialog.cmbDeleteOptions.getSelectedIndex());
+        int confirm = JOptionPane.showConfirmDialog(
+                dialog, 
+                "¿Está seguro que desea eliminar los datos del historial?\n" + 
+                "Esta acción no puede ser revertida.", 
+                "Confirmar Eliminación de Historial", JOptionPane.WARNING_MESSAGE
+        );
+        
+        if (confirm == 0) {
+          userDao.deleteUsersHistory(dialog.cmbDeleteOptions.getSelectedIndex());
+        }
         break;
     }
     
