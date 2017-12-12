@@ -163,7 +163,7 @@ public class CustomerDao extends Conexion {
            }
            
        } catch (SQLException ex) {
-           System.err.println(ex);
+           System.err.println("Misteik" + ex);
        } finally {
            super.cerrar();
        }
@@ -213,5 +213,36 @@ public class CustomerDao extends Conexion {
        }
     return cuto;
 }   
+    public ArrayList<Customer>GetDeterminatedCustomer(String query){
+        ArrayList<Customer>customers = new ArrayList();
+
+        try {       
+            super.conectar();
+            Statement execute = super.getConexion().createStatement();
+            ResultSet result = execute.executeQuery(query);
+            
+            while (result.next()) {
+                Customer cs = new Customer(); 
+                cs.setCustomerName(result.getString("customer_name"));
+                
+                Service s = new Service();
+                s.setIdService(result.getInt("id_service"));
+                s.setFee(result.getDouble("fee"));
+                s.setStreetAvenue(result.getString("street_avenue"));
+                s.setHouseNumber(result.getString("house_number"));
+                s.setZone(result.getInt("zone"));
+                
+                cs.setCustomerService(s);
+                customers.add(cs);
+                
+            }  
+                
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            super.cerrar();
+        }
+        return customers;
+    }
     
 }

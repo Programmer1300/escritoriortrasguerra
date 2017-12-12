@@ -1,8 +1,12 @@
 package Controloador;
 
 import classes.Customer;
-import classes.Service;
+import classes.Department;
+import classes.Town;
+import classes.Township;
 import dao.CustomerDao;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,12 +14,14 @@ import javax.swing.table.DefaultTableModel;
 
 import vistas.IfrmFindCustomers;
 
-public class FindCustomers implements KeyListener {
-
-    IfrmFindCustomers vista = new IfrmFindCustomers();
-
+public class FindCustomers implements KeyListener{
+    private CustomerDao customerdao;
+    private IfrmFindCustomers vista;
+    
+    
     public FindCustomers(IfrmFindCustomers formulario) {
         vista = formulario;
+        customerdao = new CustomerDao();
         this.vista.txtNameCode.addKeyListener(this);
     }
 
@@ -23,20 +29,17 @@ public class FindCustomers implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-@Override
-        public void keyPressed(KeyEvent e) {
+    @Override
+    public void keyPressed(KeyEvent e) {
     }
 
     @Override
-        public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e) {
 
         if (e.getSource() == vista.txtNameCode) {
 
-            CustomerDao customerdao = new CustomerDao();
-            Customer customer = new Customer();
-
             String texto;
-            String query;
+            String query;   
             texto = vista.txtNameCode.getText();
 
             if (isNumeric(texto) == true) {
@@ -59,7 +62,7 @@ public class FindCustomers implements KeyListener {
 
                 int customerID = cuto.getIdCustomer();
                 String name = cuto.getCustomerName();
-
+ 
                 cuto.getCustomerService();
                 double fee = cuto.getCustomerService().getFee();
                 String address = cuto.getCustomerService().getStreetAvenue()

@@ -3,90 +3,92 @@ package Controloador;
 
 
 import classes.Customer;
-import classes.Service;
+import classes.Department;
+import classes.Town;
+import classes.Township;
 import dao.CustomerDao;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
-import vistas.prueba;
+import vistas.IfrmFindCustomers;
 
-public class Controller2 implements KeyListener {
+public class Controller2 implements ActionListener {
+     private ListasController listas;
+     private CustomerDao customerdao;
+     private IfrmFindCustomers vista;
+     String query;
+
     
-    prueba vista = new prueba();
     
-    public Controller2(prueba miformulario) {
-        vista = miformulario;
-        
-        this.vista.prueba2.addKeyListener(this);
-        
-    } 
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
+    public Controller2(IfrmFindCustomers formulario) {
+            this.vista = formulario;
+            listas = new ListasController();
+            vista.cmbDepartment.setModel(listas.getDepartmentsComboBoxModel());
+                                Customer cuto = new Customer();
 
-    @Override
-    public void keyPressed(KeyEvent e) {
+            initListeners();
     }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Department selectedDepto;
+            Township selectedTownship;
+            Town selectedTown;
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        
-        if (e.getSource()==vista.prueba2) {                  
-            
-            CustomerDao customerdao = new CustomerDao();
-            Customer customer = new Customer();
-            Service service = new Service();
-            
-            String texto;
-            String query;
-            texto = vista.prueba2.getText();
-            
-            if (isNumeric(texto) == true) {
-            
-            query = "select * from generalView where id_customer like '%" + texto + "%'";
-        } else {
-            query = "select * from generalView where customer_name like '%" + texto + "%'";
-        }
-            
-            DefaultTableModel muestrameclientes = (DefaultTableModel) vista.tblTown.getModel();
-            
-            if (muestrameclientes.getRowCount() > 0) {
-                muestrameclientes.setRowCount(0);
+            switch(e.getActionCommand()){
+                
+                case "cmbDepartment":
+                    selectedDepto = (Department) vista.cmbDepartment.getSelectedItem();
+                    vista.cmbTownships.setModel(listas.getTownshipsComboBoxModel(selectedDepto.getIdDepto()));
+                break;
+                
+                case "cmbTownships":
+                    selectedTownship  = (Township) vista.cmbTownships.getSelectedItem();
+                    vista.cmbTown.setModel(listas.getTownsComboBoxModel(selectedTownship.getIdTownship()));
+                break;
+                
+                case "cmbTown":
+                    selectedTown = (Town) vista.cmbTown.getSelectedItem();
+                    customerdao = new CustomerDao();
+                    query = "select * from generalView where id_town = " + selectedTown.getIdTown() +"";
+                    
+                    System.out.println("holiis" + query);
+                    
+                    DefaultTableModel tablita  = (DefaultTableModel) vista.tblTown.getModel();
+                    
+                    if (tablita.getRowCount() > 0) {
+                        tablita.setRowCount(0);
+                    
+                    }
+
+                    for (Customer cuto : customerdao.getCustomers(query)) {
+                        System.out.println("hellouu" + query);
+                        int customerID = cuto.getIdCustomer();
+                        String name = cuto.getCustomerName();
+
+                        cuto.getCustomerService();
+                        double fee = cuto.getCustomerService().getFee();
+                        String address = cuto.getCustomerService().getStreetAvenue()
+                                + " " + cuto.getCustomerService().getHouseNumber()
+                                + " " + "Zona" + " " + cuto.getCustomerService().getZone();
+
+                        Object[] tabladeclientes = new Object[4];
+                        tabladeclientes[0] = customerID;
+                        tabladeclientes[1] = name;
+                        tabladeclientes[2] = fee;
+                        tabladeclientes[3] = address;
+                        
+                        tablita.addRow(tabladeclientes);
+                break;
+                    }   
             }
-
-            for (Customer cuto : customerdao.getCustomers(query)) {
-
-                int customerID = cuto.getIdCustomer();
-                String name = cuto.getCustomerName();
-
-                customer.setCustomerService(service);
-
-                double fee = customer.getCustomerService().getFee();
-                String address = customer.getCustomerService().getStreetAvenue();
-//                        + customer.getCustomerService().getHouseNumber()
-//                        + customer.getCustomerService().getZone();
-
-                Object[] tablaDeClientes = new Object[4];
-                tablaDeClientes[0] = customerID;
-                tablaDeClientes[1] = name;
-                tablaDeClientes[2] = fee;
-                tablaDeClientes[3] = address;
-
-                muestrameclientes.addRow(tablaDeClientes);
-            }
         }
-    }
-    
-    
-    public static boolean isNumeric(String s) {
-
-        try {
-            int n = (int) Double.parseDouble(s);
-        } catch (NumberFormatException e) {
-            return false;
+        
+        private void initListeners(){
+            vista.cmbDepartment.setActionCommand("cmbDepartment");
+            vista.cmbDepartment.addActionListener(this);
+            vista.cmbTownships.setActionCommand("cmbTownships");
+            vista.cmbTownships.addActionListener(this);
+            vista.cmbTown.setActionCommand("cmbTown");
+            vista.cmbTown.addActionListener(this);
         }
-        return true;
-    }
-
-    
-}
+    }  
