@@ -191,7 +191,7 @@ public class PaymentsController implements ActionListener {
   
   }
   
-  private void initListeners() {    
+    private void initListeners() {    
     vista.cmbDeptoHistory.setActionCommand("cmbDeptoHistory");
     vista.cmbDeptoHistory.addActionListener(this);
     

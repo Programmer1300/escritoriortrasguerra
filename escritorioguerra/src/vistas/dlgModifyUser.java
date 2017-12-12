@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import classes.UserType;
+
 /**
  *
  * @author javam
@@ -28,21 +30,56 @@ public class dlgModifyUser extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgStatusUser = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
-        btnCloses = new javax.swing.JButton();
+        btnModUserSave = new javax.swing.JButton();
+        btnModUserClose = new javax.swing.JButton();
+        lblUsername = new javax.swing.JLabel();
+        lblpass = new javax.swing.JLabel();
+        lbltype = new javax.swing.JLabel();
+        txtModUsername = new javax.swing.JTextField();
+        txtModUserpass = new javax.swing.JPasswordField();
+        lblStatus = new javax.swing.JLabel();
+        jrbUserAct = new javax.swing.JRadioButton();
+        jrbUserDsac = new javax.swing.JRadioButton();
+        cmbModuserType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Modificar"); // NOI18N
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/ajustes.png"))); // NOI18N
 
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
+        btnModUserSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Check-icon.png"))); // NOI18N
 
-        btnCloses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
-        btnCloses.addActionListener(new java.awt.event.ActionListener() {
+        btnModUserClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Delete-icon.png"))); // NOI18N
+        btnModUserClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClosesActionPerformed(evt);
+                btnModUserCloseActionPerformed(evt);
+            }
+        });
+
+        lblUsername.setText("Ingrese el nombre del usuario nuevo:");
+
+        lblpass.setText("Ingrese la contraseña del usuario nuevo:");
+
+        lbltype.setText("Selevione el tipo de usuario: ");
+
+        txtModUsername.setToolTipText("Ingrese el Nombre de usuario");
+
+        txtModUserpass.setToolTipText("Ingrese la Contraseña ");
+        txtModUserpass.setMinimumSize(new java.awt.Dimension(14, 24));
+
+        lblStatus.setText("estado del usuario");
+
+        btgStatusUser.add(jrbUserAct);
+        jrbUserAct.setText("Activo");
+
+        btgStatusUser.add(jrbUserDsac);
+        jrbUserDsac.setText("Inactivo");
+
+        cmbModuserType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbModuserTypeActionPerformed(evt);
             }
         });
 
@@ -50,34 +87,87 @@ public class dlgModifyUser extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCloses, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUsername)
+                            .addComponent(txtModUserpass, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblpass))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jrbUserAct)
+                            .addComponent(lblStatus)
+                            .addComponent(jrbUserDsac))
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addComponent(btnModUserSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cmbModuserType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbltype, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModUserClose, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCloses)
-                        .addComponent(btnSave))
-                    .addComponent(jLabel1))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblUsername)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtModUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblStatus))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jrbUserAct)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrbUserDsac))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblpass)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtModUserpass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbltype)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(cmbModuserType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnModUserClose))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModUserSave)))
+                .addGap(46, 46, 46))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClosesActionPerformed
+    private void btnModUserCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModUserCloseActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_btnClosesActionPerformed
+    }//GEN-LAST:event_btnModUserCloseActionPerformed
+
+    private void cmbModuserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbModuserTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbModuserTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,8 +212,18 @@ public class dlgModifyUser extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCloses;
-    private javax.swing.JButton btnSave;
+    private javax.swing.ButtonGroup btgStatusUser;
+    public javax.swing.JButton btnModUserClose;
+    public javax.swing.JButton btnModUserSave;
+    public javax.swing.JComboBox<UserType> cmbModuserType;
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JRadioButton jrbUserAct;
+    public javax.swing.JRadioButton jrbUserDsac;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblpass;
+    private javax.swing.JLabel lbltype;
+    public javax.swing.JTextField txtModUsername;
+    public javax.swing.JPasswordField txtModUserpass;
     // End of variables declaration//GEN-END:variables
 }

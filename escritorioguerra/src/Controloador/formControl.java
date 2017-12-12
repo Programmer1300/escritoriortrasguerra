@@ -53,8 +53,6 @@ public class formControl implements ActionListener {
         if (event.equals("Busqueda por codigo")) {
             IfrmFindCustomers a = new IfrmFindCustomers();
             
-            FindCustomers controlador = new FindCustomers(a);
-            
             dad.desktopPane.add(a);
             a.setVisible(true);
             a.panCodeName.setVisible(true);
@@ -64,6 +62,7 @@ public class formControl implements ActionListener {
 
         if (event.equals("Busqueda por colonia")) {
             IfrmFindCustomers b = new IfrmFindCustomers();
+           
             dad.desktopPane.add(b);
             b.setVisible(true);
             b.panTown.setVisible(true);

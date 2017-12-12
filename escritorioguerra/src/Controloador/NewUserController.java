@@ -49,7 +49,9 @@ public class NewUserController implements ActionListener{
                     +selectedeUsType.getUserType()+" al Sistema ",
                     "confirmacion",JOptionPane.OK_CANCEL_OPTION);
             if (ax == JOptionPane.YES_OPTION) {
-                userdao.addUser(newUsname, newpass, codty);  
+                userdao.addUser(newUsname, newpass, codty);
+                JOptionPane.showMessageDialog(null, "Has ingresado un "
+                        + "nuevo usuarion satisfactoriamente.");
             } else if (ax == JOptionPane.NO_OPTION) {
                 JOptionPane.showMessageDialog(null, "Has seleccionado NO.");
             }
