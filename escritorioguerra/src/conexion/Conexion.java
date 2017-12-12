@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 public class Conexion {
     
     private Connection conexion;
-    private final String DIRECCION = "jdbc:mysql://localhost:3306/dbextraguerra";
-    private final String USUARIO ="root";
-    private final String CONTRA = "Leo525096";
+    private final String DIRECCION = "jdbc:mysql://node27683-transguerra.njs.jelastic.vps-host.net/dbextraguerra";
+    private final String USUARIO ="admin";
+    private final String CONTRA = "Guerra20231850$";
 
     public Connection getConexion() {
         return conexion;
