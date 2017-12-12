@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facturas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba1d24a9-ead8-4cd1-8a6d-2e140ac10db4">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+   
+     payments_info.`customer_name` AS payments_info_customer_name,
+     payments_info.`customer_last_name` AS payments_info_customer_last_name,
+     payments_info.`nit` AS payments_info_nit,
+     payments_info.`fee` AS payments_info_fee,
+     payments_info.`street_avenue` AS payments_info_street_avenue,
+     payments_info.`house_number` AS payments_info_house_number,
+     payments_info.`zone` AS payments_info_zone,
+     payments_info.`town_name` AS payments_info_town_name,
+     payments_info.`status` AS payments_info_status,
+     months.`id_month` AS months_id_month,
+     months.`month_name` AS months_month_name,
+    (SELECT date_format(NOW(),'%d/%m/%Y')) AS FECHA
+FROM
+     `payments_info` payments_info,
+     `months` months
+WHERE
+     payments_info.id_status = 1
+     and payments_info.id_voucher = 2
+     and months.id_month = MONTH(CURRENT_DATE)]]>
+	</queryString>
+	<field name="payments_info_customer_name" class="java.lang.String"/>
+	<field name="payments_info_customer_last_name" class="java.lang.String"/>
+	<field name="payments_info_nit" class="java.lang.Integer"/>
+	<field name="payments_info_fee" class="java.lang.Double"/>
+	<field name="payments_info_street_avenue" class="java.lang.String"/>
+	<field name="payments_info_house_number" class="java.lang.String"/>
+	<field name="payments_info_zone" class="java.lang.String"/>
+	<field name="payments_info_town_name" class="java.lang.String"/>
+	<field name="payments_info_status" class="java.lang.String"/>
+	<field name="months_id_month" class="java.lang.Integer"/>
+	<field name="months_month_name" class="java.lang.String"/>
+	<field name="FECHA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="41" y="-1" width="171" height="18" uuid="29a5b0b7-5a5b-4c49-a595-7ec66618db60"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_customer_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="213" y="-1" width="195" height="18" uuid="d463cf84-b8db-48ed-80d6-0d65eca50537"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_customer_last_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="424" y="35" width="114" height="18" uuid="8ff23725-c47e-49f1-b46c-f82142c214df"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_nit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="461" y="80" width="77" height="18" uuid="3f468cce-a617-4c90-99d7-c67a5ae0cffe"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_fee}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="37" y="35" width="76" height="18" uuid="08f8619b-4c17-49d8-a59f-9737b2bf7a08"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_street_avenue}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="104" y="35" width="50" height="18" uuid="406ac95a-d3e4-41a1-b17c-6fb2ec6d5cd1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_house_number}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="356" y="35" width="39" height="18" uuid="63d0c292-9805-42dd-950f-70756502a6d9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_zone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="137" y="35" width="190" height="18" uuid="e9cc0e56-5a95-4b38-88c8-759be6cabaa7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_town_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="461" y="195" width="77" height="18" uuid="dcfa5831-2894-4cef-b8e5-6b9d2b9a26ab"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payments_info_fee}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="115" y="100" width="129" height="20" uuid="de011bc0-b4db-4ee6-9b1c-fc145fc9d41f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[CORRESPONDIENTE AL MES DE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="78" width="264" height="20" uuid="d3ff3054-5648-4608-a3da-9825eefd1288"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SERVICIO PARTICULAR DE EXTRACCION DE DESECHOS SOLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="78" width="46" height="20" uuid="37559ea4-7ed2-4f52-a3c4-d371cbdb2c5d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1 SERVICIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="6" width="100" height="20" uuid="e12338b1-a335-4b95-a908-cdc8109ca469"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="36" width="46" height="20" uuid="33dbd57b-9b4e-4d2d-9199-95f5564be11b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZONA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="247" y="95" width="93" height="20" uuid="f29b18d9-4e1c-468d-a035-e84ac45f11e7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{months_month_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1de1feaa-1d6d-4b51-a491-a105f0bb9277"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -15,11 +15,13 @@ public class DeptoDao extends Conexion {
         try {
             super.conectar();
             String deptsQuery = "SELECT * FROM departments";
-            PreparedStatement psDepts = super.getConexion().prepareStatement(deptsQuery);
+            PreparedStatement psDepts = super.getConexion().prepareStatement(
+                    deptsQuery);
             ResultSet rsDepts = psDepts.executeQuery();
             
             while (rsDepts.next()) {
-                Department dept = new Department(rsDepts.getInt(1), rsDepts.getString(2));
+                Department dept = new Department(
+                        rsDepts.getInt(1), rsDepts.getString(2));
                 allDepts.add(dept);
             }
             
