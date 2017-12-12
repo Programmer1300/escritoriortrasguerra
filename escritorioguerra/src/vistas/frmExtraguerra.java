@@ -1,9 +1,16 @@
 
 package vistas;
 
+import conexion.Conexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+
 
 public class frmExtraguerra extends javax.swing.JFrame {
-
+    Conexion conexion = new Conexion();
     public frmExtraguerra() {
         initComponents();
     }
@@ -12,6 +19,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         mnuCostomer = new javax.swing.JMenu();
@@ -19,7 +27,7 @@ public class frmExtraguerra extends javax.swing.JFrame {
         mniSearchTown = new javax.swing.JMenuItem();
         mniList = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        mniPrinter = new javax.swing.JMenuItem();
+        mniBilling = new javax.swing.JMenuItem();
         mniPayments = new javax.swing.JMenuItem();
         mniUsers = new javax.swing.JMenu();
         mniUser = new javax.swing.JMenuItem();
@@ -70,10 +78,14 @@ public class frmExtraguerra extends javax.swing.JFrame {
         helpMenu.setText("Cobros");
         helpMenu.setToolTipText("Menu para inprimir resivos y facturas");
 
-        mniPrinter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
-        mniPrinter.setMnemonic('c');
-        mniPrinter.setText("Inprimir Resivo");
-        helpMenu.add(mniPrinter);
+        mniBilling.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/Printer-icon.png"))); // NOI18N
+        mniBilling.setText("Facturacion");
+        mniBilling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniBillingActionPerformed(evt);
+            }
+        });
+        helpMenu.add(mniBilling);
 
         mniPayments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/comprobar.png"))); // NOI18N
         mniPayments.setText("Pagos");
@@ -168,6 +180,10 @@ public class frmExtraguerra extends javax.swing.JFrame {
         // TODO add your handling code here: 
     }//GEN-LAST:event_mniPaymentsActionPerformed
 
+    private void mniBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBillingActionPerformed
+ 
+    }//GEN-LAST:event_mniBillingActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,12 +223,13 @@ public class frmExtraguerra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuBar menuBar;
+    public javax.swing.JMenuItem mniBilling;
     public javax.swing.JMenuItem mniList;
     public javax.swing.JMenuItem mniNameCode;
     public javax.swing.JMenuItem mniOut;
     public javax.swing.JMenuItem mniPayments;
-    public javax.swing.JMenuItem mniPrinter;
     public javax.swing.JMenuItem mniSearchTown;
     public javax.swing.JMenuItem mniSignOff;
     public javax.swing.JMenuItem mniUser;

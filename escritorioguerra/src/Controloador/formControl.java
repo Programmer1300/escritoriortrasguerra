@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import vistas.Escritorioguerra;
+import vistas.IfrmFacturacion;
 import vistas.IfrmFindCustomers;
 import vistas.IfrmPayments;
 import vistas.IfrmSystem;
@@ -39,6 +40,9 @@ public class formControl implements ActionListener {
         
         this.dad.mniOut.setActionCommand("Salir");
         this.dad.mniOut.addActionListener(this);
+        
+        this.dad.mniBilling.setActionCommand("Facturacion");
+        this.dad.mniBilling.addActionListener(this);
     }
 
     @Override
@@ -102,6 +106,10 @@ public class formControl implements ActionListener {
             System.exit(0);
         }
         
-                
+        if (event.equals("Facturacion")){
+            IfrmFacturacion e = new IfrmFacturacion();
+            dad.desktopPane.add(e);
+            e.setVisible(true);
+        }       
     }
 }
