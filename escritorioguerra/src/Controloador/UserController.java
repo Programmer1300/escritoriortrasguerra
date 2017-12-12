@@ -3,9 +3,15 @@ package Controloador;
 import classes.Department;
 import classes.Town;
 import classes.Township;
+import classes.UserType;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -16,7 +22,7 @@ import vistas.frmExtraguerra;
 
 public class UserController implements ActionListener{
     
-    
+    dlgModifyUser modifyuser = new dlgModifyUser(null, true);
     ListasController listasController = new ListasController();
     frmExtraguerra dad = new frmExtraguerra();
     IfrmSystem vistaus = new IfrmSystem();
@@ -51,6 +57,15 @@ public class UserController implements ActionListener{
             }
         });
         
+        vistaus.tblUser.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked( MouseEvent evt ){           
+              
+             }   
+             
+        }); 
+        
         this.vistaus.btnDesbloquear.setActionCommand("");
         this.vistaus.btnDesbloquear.addActionListener(this);
         
@@ -59,6 +74,9 @@ public class UserController implements ActionListener{
         
         this.vistaus.mniModi.setActionCommand("Modificar");
         this.vistaus.mniModi.addActionListener(this);
+        
+        this.vistaus.btnSysClose1.setActionCommand("");
+        this.vistaus.btnSysClose1.addActionListener(this);
     }
     
 
@@ -77,8 +95,29 @@ public class UserController implements ActionListener{
     
     if (ea.getSource()==vistaus.mniModi){
         Frame f = JOptionPane.getFrameForComponent(dad);
-        dlgModifyUser dialog = new dlgModifyUser(f, true);
-        dialog.show();
+        dlgModifyUser modifyUser = new dlgModifyUser(f, true);
+          int filaSelec = vistaus.tblUser.getSelectedRow();
+                
+            if (filaSelec >= 0) {
+                Object[] Modifyinfo = {vistaus.tblUser.getValueAt(filaSelec, 0),
+                    vistaus.tblUser.getValueAt(filaSelec, 1),
+                    vistaus.tblUser.getValueAt(filaSelec, 2)};
+        ModifyController nnm = new ModifyController(modifyUser);
+        nnm.modifyuser.txtModUsername.setText(String.valueOf(Modifyinfo[0]));
+        UserType ust = new UserType(4, Modifyinfo[1].toString());
+        nnm.modifyuser.cmbModuserType.setSelectedItem(ust);
+        nnm.modifyuser.jrbUserAct.setSelected(true);
+        modifyUser.show();
+    }
+    }
+    
+    if (ea.getSource()==vistaus.btnSysClose1){
+         try {
+            // TODO add your handling code here:
+            vistaus.setClosed(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(IfrmSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     }
      
