@@ -53,7 +53,7 @@ public class PaymentsDAO extends Conexion {
                 pay.setPaymentDate(result.getString("payment_date"));
                 pay.setCustomer(cs);
                 pay.setMonth(mh);
-                pay.setYear(result.getInt("payYear"));
+                pay.setYear(result.getInt("pay_year"));
                 
                 payments.add(pay);
             }
