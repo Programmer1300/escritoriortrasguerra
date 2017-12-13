@@ -5,9 +5,19 @@
  */
 package vistas;
 
+import conexion.Conexion;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -20,6 +30,13 @@ public class IfrmFacturacion extends javax.swing.JInternalFrame {
      */
     public IfrmFacturacion() {
         initComponents();
+        try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+                        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -43,12 +60,22 @@ public class IfrmFacturacion extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/cuaderno.png"))); // NOI18N
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/factura.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         label1.setText("IMPRIMIR RECIBOS");
 
         label3.setText("IMPRIMIR FACTURAS");
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/factura.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Icons/FACTURACION.png"))); // NOI18N
 
@@ -111,6 +138,37 @@ public class IfrmFacturacion extends javax.swing.JInternalFrame {
             Logger.getLogger(IfrmSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCanselarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbextraguerra","root","");
+            JasperReport jr = JasperCompileManager.compileReport("src\\reciboandfactura\\recibo.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(jr, null,cn);
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(IfrmFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(IfrmFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbextraguerra","root","");
+            JasperReport jr = JasperCompileManager.compileReport("src\\reciboandfactura\\facturas.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(jr, null,cn);
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(IfrmFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(IfrmFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
