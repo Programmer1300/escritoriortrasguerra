@@ -13,6 +13,7 @@ public class Conexion {
     private final String USUARIO ="root";
     private final String CONTRA = "";
 
+
     public Connection getConexion() {
         return conexion;
     }

@@ -145,7 +145,7 @@ public class IfrmFacturacion extends javax.swing.JInternalFrame {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbextraguerra","root","");
             JasperReport jr = JasperCompileManager.compileReport("src\\reciboandfactura\\recibo.jrxml");
             JasperPrint jp = JasperFillManager.fillReport(jr, null,cn);
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(IfrmFacturacion.class.getName()).log(Level.SEVERE, null, ex);
