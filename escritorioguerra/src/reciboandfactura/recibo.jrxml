@@ -283,20 +283,19 @@ WHERE
 				</textElement>
 				<text><![CDATA[FIRMA AUTORIZADA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="423" y="203" width="112" height="39" uuid="1554bfe7-54b0-4fed-9356-d480a8e4ea9b"/>
-				<imageExpression><![CDATA["C:\\Users\\usuario leo\\Desktop\\proyecto\\escritoriortrasguerra\\escritorioguerra\\src\\reciboandfactura\\FIRMA.png"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="17" y="-1" width="78" height="59" uuid="133e8cd3-9b1e-4f80-ad05-9df59de6c8c6"/>
-				<imageExpression><![CDATA["C:\\Users\\usuario leo\\Desktop\\proyecto\\escritoriortrasguerra\\escritorioguerra\\src\\reciboandfactura\\logoo.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="9" y="53" width="126" height="20" uuid="c2655278-d0e0-4aab-ac83-0a1d7cbc89cc"/>
+				<reportElement x="0" y="-1" width="157" height="20" uuid="c2655278-d0e0-4aab-ac83-0a1d7cbc89cc"/>
 				<textElement>
-					<font size="8"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TRANSPORTES GUERRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="212" width="86" height="20" uuid="579f3f0a-c7dd-459f-bc35-7624e4190056"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LUIS GUERRA]]></text>
 			</staticText>
 		</band>
 	</detail>
